@@ -1,5 +1,6 @@
 class Set < ApplicationRecord
   belongs_to :user
+  has_many :photo
 
   validates :name, presence: true, length: {maximum: 75} 
   validates :description, presence: true, length: {maximum: 600}
