@@ -1,10 +1,18 @@
-<h4 class="landing_message">Welcome</h4>
-<p class="landing_submessage">Please sign in/log in to rent a set !</p>
+<% if current_user %>
 
-<div class="landing_login">
-  <ul class="landing_login_list">
-    <li><%= link_to 'Inscription', new_user_registration_path %></li>
-    <li>  <%= link_to 'Identification', new_user_session_path %></li>
+  <h2 class="landing_message">Hello <%= current_user.first_name %>!</h2><br>
+  <p class="landing_submessage">Please sign in/log in to rent a set !</p>
+  <div class="landing_login">
     <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
-  </ul>
-</div>
+    <li><%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %></li>
+  </div>
+
+<% else %>
+
+  <h2 class="landing_message">Welcome</h2>
+  <div class="landing_login">
+    <li><%= link_to 'Inscription', new_user_registration_path %></li>
+    <li><%= link_to 'Identification', new_user_session_path %></li>
+  </div>
+
+<% end %>
