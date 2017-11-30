@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 # Authetification
 gem 'devise'
 
+gem 'paperclip'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'

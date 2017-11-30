@@ -1,4 +1,7 @@
 <h2>Hello World!</h2>
+
 <%= link_to 'Inscription', new_user_registration_path %>
 <%= link_to 'Identification', new_user_session_path %>
 <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+
+<%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>  
