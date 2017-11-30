@@ -1,4 +1,10 @@
-<h2>Hello World!</h2>
-<%= link_to 'Inscription', new_user_registration_path %>
-<%= link_to 'Identification', new_user_session_path %>
-<%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+<h4 class="landing_message">Welcome</h4>
+<p class="landing_submessage">Please sign in/log in to rent a set !</p>
+
+<div class="landing_login">
+  <ul class="landing_login_list">
+    <li><%= link_to 'Inscription', new_user_registration_path %></li>
+    <li>  <%= link_to 'Identification', new_user_session_path %></li>
+    <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
+  </ul>
+</div>
