@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123141110) do
+ActiveRecord::Schema.define(version: 20171130143123) do
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "set_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["set_id"], name: "index_photos_on_set_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
