@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :set do
+  resources :sets do
+  resources :reservations, only: [:create]
   end
 
 end
