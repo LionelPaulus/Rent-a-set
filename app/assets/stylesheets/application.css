@@ -53,3 +53,9 @@ form {
 .signup_form .field {
   width: 300px;
 }
+
+/*APPLICATION FIELD*/
+
+.application_field {
+  margin-bottom: 25px;
+}
