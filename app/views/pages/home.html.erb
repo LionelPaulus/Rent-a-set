@@ -3,7 +3,8 @@
   <h2 class="landing_message">Hello <%= current_user.first_name %>!</h2><br>
   <p class="landing_submessage">Please sign in/log in to rent a set !</p>
   <div class="landing_login">
-    <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to 'Create a set', new_set_path %></li>
+    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
     <li><%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %></li>
   </div>
 
@@ -11,8 +12,8 @@
 
   <h2 class="landing_message">Welcome</h2>
   <div class="landing_login">
-    <li><%= link_to 'Inscription', new_user_registration_path %></li>
-    <li><%= link_to 'Identification', new_user_session_path %></li>
+    <li><%= link_to 'Sign up', new_user_registration_path %></li>
+    <li><%= link_to 'Login', new_user_session_path %></li>
   </div>
 
 <% end %>
