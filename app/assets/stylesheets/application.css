@@ -15,8 +15,14 @@
  */
 
 body {
+  background-color: #F1F1F1;
   width: 100%;
   margin: 0;
+}
+
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #EEE;
 }
 
 .landing_message {
@@ -58,4 +64,42 @@ form {
 
 .application_field {
   margin-bottom: 25px;
+}
+
+/*LOGIN PAGE*/
+
+/*.login_title {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 200;
+}
+
+.login_field {
+  margin-bottom: 25px;
+}*/
+
+
+.new_user {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin-heading{
+  margin-bottom: 20px;
+}
+.signin_container {
+  margin-top: 30px;
+  /*text-align: center;*/
+}
+input#user_password.form-control {
+  margin-bottom: 15px;
+}
+.signin_container.checkbox{
+  text-align: left;
+  margin-bottom: 15px;
+}
+.actions{
+  margin-bottom: 15px;
 }
