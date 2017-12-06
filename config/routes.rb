@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'people/index'
-
   devise_for :users, path: 'auth',
                      path_names: {
                         sign_in: 'login',
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :set do
+  resources :sets do
   end
 
 end
