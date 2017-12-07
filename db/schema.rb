@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 20171206165255) do
 
   create_table "photos", force: :cascade do |t|
-    t.integer "place_id"
+    t.integer "set_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_photos_on_place_id"
+    t.index ["set_id"], name: "index_photos_on_set_id"
   end
 
   create_table "places", force: :cascade do |t|
