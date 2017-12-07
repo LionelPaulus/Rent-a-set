@@ -1,10 +1,11 @@
 class Place < ApplicationRecord
   belongs_to :user
-  belongs_to :photo
+  has_many :photo
+  has_many :bookings
 
   validates :name, presence: true, length: {maximum: 75}
   validates :description, presence: true, length: {maximum: 600}
-  validates :type, presence: true
+  validates :category, presence: true
   validates :address, presence: true
   validates :city, presence: true
   validates :ambience, presence: true
