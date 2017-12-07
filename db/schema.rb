@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130143123) do
+ActiveRecord::Schema.define(version: 20171206165255) do
 
   create_table "photos", force: :cascade do |t|
-    t.integer "set_id"
+    t.integer "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["set_id"], name: "index_photos_on_set_id"
+    t.index ["place_id"], name: "index_photos_on_place_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "photo_id"
+    t.string "name"
+    t.text "description"
+    t.string "category"
+    t.string "address"
+    t.string "city"
+    t.string "ambience"
+    t.integer "area"
+    t.integer "exposure"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_places_on_photo_id"
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
