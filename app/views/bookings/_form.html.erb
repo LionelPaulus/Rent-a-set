@@ -11,8 +11,6 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :user_id, id: :booking_user_id, :value => current_user.id %>
-
   <%= form.hidden_field :place_id, id: :booking_place_id, :value => @place_id %>
 
   <div class="field">
@@ -29,3 +27,10 @@
     <%= form.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      dateFormat: 'dd/mm/yy',
+    });
+  });
+</script>

@@ -7,7 +7,7 @@ class Booking < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
 
-  before_save :calculate_total_price
+  # before_save :calculate_total_price
 
   # def calculate_total_price
   #   self.total = duration_days * room.price
