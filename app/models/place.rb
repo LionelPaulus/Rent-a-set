@@ -6,6 +6,7 @@ class Place < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 75}
   validates :description, presence: true, length: {maximum: 600}
+  validates :photos, presence: true
   validates :category, presence: true
   validates :address, presence: true
   validates :city, presence: true

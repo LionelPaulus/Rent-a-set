@@ -26,15 +26,15 @@
   def create
     @place = Place.new(place_params)
     @place.user_id = current_user.id
+    if params['place']['photo']
+      params['place']['photo']['image'].each do |image|
+        @place.photos.build(image: image)
+      end
+    end
 
     respond_to do |format|
       if @place.save
         # build or create
-        if params['place']['photo']
-          params['place']['photo']['image'].each do |image|
-            @place.photos.create(image: image)
-          end
-        end
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
