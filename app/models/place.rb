@@ -11,7 +11,7 @@ class Place < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :ambience, presence: true
-  validates :area, numericality: { only_integer: true, greater_than: 1 }
+  validates :area, numericality: { only_integer: true, greater_than: 0, less_than: 1000 }
   validates :exposure, numericality: { only_integer:true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
-  validates :price, numericality: { only_integer: true, greater_than: 0 }
+  validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 10000 }
 end

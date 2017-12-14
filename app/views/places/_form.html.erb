@@ -50,17 +50,17 @@
 
   <div class="field">
     <%= form.label :area %>
-    <%= form.number_field :area, id: :place_area %>
+    <%= form.number_field :area, id: :place_area, min: 1, max: 999 %>
   </div>
 
   <div class="field">
     <%= form.label :exposure %>
-    <%= form.number_field :exposure, id: :place_exposure %>
+    <%= form.number_field :exposure, id: :place_exposure, min: 0, max: 5 %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, id: :place_price %>
+    <%= form.number_field :price, id: :place_price, min: 1, max: 9999 %>
   </div>
 
   <div class="actions">
