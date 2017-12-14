@@ -25,15 +25,16 @@
   # POST /places.json
   def create
     @place = Place.new(place_params)
+    # @place.photos.build(place_params['photo'])
 
     respond_to do |format|
       if @place.save
-        puts '===================='
-        puts @place.photos
-        puts '===================='
-        # params[:photo]['image'].each do |img|
-          # @photo = @product.photos.create!(:image => img)
+        # params['place']['photo']['image'].each do |img|
+        #   @photo = @product.photos.create!(:image => img)
         # end
+        params['place']['photo']['image'].each do |image|
+          @place.photos.create(image: image)
+        end
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
@@ -75,6 +76,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :city, :ambience, :area, :exposure, :price, photo_attributes: [:image])
+      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :city, :ambience, :area, :exposure, :price, :photo, photo_attributes: [:image])
     end
 end
