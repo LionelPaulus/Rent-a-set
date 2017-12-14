@@ -30,8 +30,10 @@
     respond_to do |format|
       if @place.save
         # build or create
-        params['place']['photo']['image'].each do |image|
-          @place.photos.create(image: image)
+        if params['place']['photo']
+          params['place']['photo']['image'].each do |image|
+            @place.photos.create(image: image)
+          end
         end
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
