@@ -32,6 +32,7 @@
         # params['place']['photo']['image'].each do |img|
         #   @photo = @product.photos.create!(:image => img)
         # end
+        #Build or create
         params['place']['photo']['image'].each do |image|
           @place.photos.create(image: image)
         end

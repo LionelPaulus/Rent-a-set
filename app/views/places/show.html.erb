@@ -7,7 +7,9 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @place.photos %>
+  <% @place.photos.each do |pic| %>
+    <%= image_tag pic.image.url %>
+  <% end %>
 </p>
 
 <p>
