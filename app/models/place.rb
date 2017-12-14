@@ -1,7 +1,8 @@
 class Place < ApplicationRecord
   belongs_to :user
-  has_many :photo
+  has_many :photos
   has_many :bookings
+  accepts_nested_attributes_for :photos
 
   validates :name, presence: true, length: {maximum: 75}
   validates :description, presence: true, length: {maximum: 600}

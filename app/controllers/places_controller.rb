@@ -1,4 +1,4 @@
-class PlacesController < ApplicationController
+ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
@@ -28,6 +28,12 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
+        puts '===================='
+        puts @place.photos
+        puts '===================='
+        # params[:photo]['image'].each do |img|
+          # @photo = @product.photos.create!(:image => img)
+        # end
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
@@ -69,6 +75,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :city, :ambience, :area, :exposure, :price)
+      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :city, :ambience, :area, :exposure, :price, photo_attributes: [:image])
     end
 end

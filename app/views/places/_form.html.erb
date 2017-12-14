@@ -16,10 +16,12 @@
     <%= form.text_field :user_id, id: :place_user_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :photo_id %>
-    <%= form.text_field :photo_id, id: :place_photo_id %>
-  </div>
+  <%= form.fields_for :photo do |t| %>
+    <div>
+      <%= t.label :image %>
+      <%= t.file_field :image, :multiple => true %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :name %>
