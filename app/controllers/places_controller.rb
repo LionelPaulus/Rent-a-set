@@ -25,14 +25,11 @@
   # POST /places.json
   def create
     @place = Place.new(place_params)
-    # @place.photos.build(place_params['photo'])
+    @place.user_id = current_user.id
 
     respond_to do |format|
       if @place.save
-        # params['place']['photo']['image'].each do |img|
-        #   @photo = @product.photos.create!(:image => img)
-        # end
-        #Build or create
+        # build or create
         params['place']['photo']['image'].each do |image|
           @place.photos.create(image: image)
         end
