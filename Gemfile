@@ -7,6 +7,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'time_difference'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

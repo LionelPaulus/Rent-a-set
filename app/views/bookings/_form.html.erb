@@ -11,26 +11,33 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :place_id, id: :booking_place_id, :value => @place_id %>
+  Price: <div id="place-price" style="display:inline;">0</div>€
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.text_field :start_time, id: :booking_start_time, class: 'datepicker' %>
-  </div>
+  <%= form.hidden_field :place_id, id: :booking_place_id, :value => @place.id %>
 
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.text_field :end_time, id: :booking_end_time, class: 'datepicker' %>
-  </div>
+  <%= form.label :start_time %>
+  <%= form.datetime_local_field :start_time %>
+
+  <%= form.label :end_time %>
+  <%= form.datetime_local_field :end_time %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker({
-      dateFormat: 'dd/mm/yy',
+  var place_price = <%= @place.price %>;
+  var inputs = document.querySelectorAll('input');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('change', function(){
+      var start_time = Date.parse($('#booking_start_time').val());
+      var end_time = Date.parse($('#booking_end_time').val());
+      if (start_time < end_time) {
+        hours = Math.floor((end_time - start_time) / 1000 / 60 / 60);
+        hourly_price = place_price / 24;
+        price = hours * hourly_price;
+        document.querySelector('#place-price').innerHTML = Math.round(price);
+      }
     });
-  });
+  }
 </script>
