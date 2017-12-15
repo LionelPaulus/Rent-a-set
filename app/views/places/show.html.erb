@@ -13,6 +13,16 @@
 </p>
 
 <p>
+  <strong>Tags:</strong>
+</p>
+
+<p>
+  <% @place.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @place.name %>
 </p>
@@ -35,11 +45,6 @@
 <p>
   <strong>City:</strong>
   <%= @place.city %>
-</p>
-
-<p>
-  <strong>Ambience:</strong>
-  <%= @place.ambience %>
 </p>
 
 <p>

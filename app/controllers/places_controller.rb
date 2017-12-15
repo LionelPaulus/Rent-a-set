@@ -31,6 +31,15 @@
         @place.photos.build(image: image)
       end
     end
+    if params['place']['tag']
+      tags = params['place']['tag']['name'].split(',')
+      puts 'Tags ==========='
+      puts tags
+      tags.each do |tag|
+        puts 'tag found'
+        @place.tags.build(name: tag)
+      end
+    end
 
     respond_to do |format|
       if @place.save
@@ -76,6 +85,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :city, :ambience, :area, :exposure, :price, :photo, photo_attributes: [:image])
+      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :city, :area, :exposure, :price, :photo, photo_attributes: [:image], tag_attributes: [:name])
     end
 end

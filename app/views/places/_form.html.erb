@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :place_name %>
+    <%= form.text_field :name, id: :place_name, max: 75 %>
   </div>
 
   <div class="field">
@@ -26,10 +26,17 @@
     <%= form.select(:category, options_for_select(['House', 'Appartment', 'Castle', 'Cottage', 'Other' ])) %>
   </div>
 
-  <%= form.fields_for :photo do |t| %>
+  <%= form.fields_for :photo do |p| %>
     <div>
-      <%= t.label :image %>
-      <%= t.file_field :image, :multiple => true %>
+      <%= p.label :image %>
+      <%= p.file_field :image, :multiple => true %>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :tag do |t| %>
+    <div>
+      <%= form.label :tags %>
+      <%= t.text_field :name %>
     </div>
   <% end %>
 
@@ -43,10 +50,7 @@
     <%= form.text_field :city, id: :place_city %>
   </div>
 
-  <div class="field">
-    <%= form.label :ambience %>
-    <%= form.text_field :ambience, id: :place_ambience %>
-  </div>
+  <!-- <input class="awesomplete"/> -->
 
   <div class="field">
     <%= form.label :area %>
