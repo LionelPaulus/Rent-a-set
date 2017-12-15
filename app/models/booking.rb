@@ -1,19 +1,16 @@
 class Booking < ApplicationRecord
-  # validates_with ReservationDateValidator
+  before_save :calculate_price
 
   belongs_to :user
   belongs_to :place
 
   validates :start_time, presence: true
   validates :end_time, presence: true
-
-  before_save :calculate_total_price
-
-  # def calculate_total_price
-  #   self.total = duration_days * room.price
-  # end
-  #
-  # def duration_days
-  #   (end_time.end_of_day.to_date - start_time.beginning_of_day.to_date).to_i
-  # end
+private
+  def calculate_price
+    hours = TimeDifference.between(self.start_time, self.end_time).in_hours
+    self.price = self.place.price
+    hourly_price = self.place.price / 24.0
+    self.total = (hourly_price * hours).round(2)
+  end
 end

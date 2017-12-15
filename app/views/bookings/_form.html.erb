@@ -1,0 +1,43 @@
+<%= form_for(@booking, url: {action: "create"}, local: true) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  Price: <div id="place-price" style="display:inline;">0</div>€
+
+  <%= form.hidden_field :place_id, id: :booking_place_id, :value => @place.id %>
+
+  <%= form.label :start_time %>
+  <%= form.datetime_local_field :start_time %>
+
+  <%= form.label :end_time %>
+  <%= form.datetime_local_field :end_time %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  var place_price = <%= @place.price %>;
+  var inputs = document.querySelectorAll('input');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('change', function(){
+      var start_time = Date.parse($('#booking_start_time').val());
+      var end_time = Date.parse($('#booking_end_time').val());
+      if (start_time < end_time) {
+        hours = Math.floor((end_time - start_time) / 1000 / 60 / 60);
+        hourly_price = place_price / 24;
+        price = hours * hourly_price;
+        document.querySelector('#place-price').innerHTML = Math.round(price);
+      }
+    });
+  }
+</script>
