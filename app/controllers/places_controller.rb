@@ -1,10 +1,11 @@
-class PlacesController < ApplicationController
+ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
   def index
     @places = Place.all
+    @tags = Tag.all
   end
 
   # GET /places/1
@@ -25,9 +26,25 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(place_params)
+    @place.user_id = current_user.id
+    if params['place']['photo']
+      params['place']['photo']['image'].each do |image|
+        @place.photos.build(image: image)
+      end
+    end
+    if params['place']['tag']
+      tags = params['place']['tag']['name'].split(',')
+      puts 'Tags ==========='
+      puts tags
+      tags.each do |tag|
+        puts 'tag found'
+        @place.tags.build(name: tag)
+      end
+    end
 
     respond_to do |format|
       if @place.save
+        # build or create
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
@@ -69,6 +86,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :ambience, :exposure, :price)
+      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :exposure, :price, :photo, photo_attributes: [:image], tag_attributes: [:name])
     end
 end

@@ -12,18 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :place_user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :photo_id %>
-    <%= form.text_field :photo_id, id: :place_photo_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :place_name %>
+    <%= form.text_field :name, id: :place_name, max: 75 %>
   </div>
 
   <div class="field">
@@ -33,8 +23,26 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category, id: :place_category %>
+    <%= form.select(:category, options_for_select(['House', 'Appartment', 'Castle', 'Cottage', 'Other' ])) %>
   </div>
+
+  <%= form.fields_for :photo do |p| %>
+    <div>
+      <%= p.label :image %>
+      <%= p.file_field :image, :multiple => true %>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :tag do |t| %>
+    <div>
+      <%= form.label :tags %>
+      <%= t.text_field :name, :class => 'awesomplete' %>
+    </div>
+  <% end %>
+
+  <%# @tags.each do |tag| %>
+    <span><%#= tag.name %></span>
+  <%# end %>
 
   <div class="field">
     <%= form.label :address %>
@@ -42,18 +50,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :ambience %>
-    <%= form.text_field :ambience, id: :place_ambience %>
+    <%= form.label :area %>
+    <%= form.number_field :area, id: :place_area, min: 1, max: 999 %>
   </div>
 
   <div class="field">
     <%= form.label :exposure %>
-    <%= form.number_field :exposure, id: :place_exposure %>
+    <%= form.number_field :exposure, id: :place_exposure, min: 0, max: 5 %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price, id: :place_price %>
+    <%= form.number_field :price, id: :place_price, min: 1, max: 9999 %>
   </div>
 
   <div class="actions">
