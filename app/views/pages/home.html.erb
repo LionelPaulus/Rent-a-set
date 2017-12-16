@@ -1,19 +1,125 @@
-<% if current_user %>
+<header class="masthead text-center text-white d-flex">
+  <div class="layer"></div>
+  <% if current_user %>
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="text-uppercase">
+          <strong>Hello <%= current_user.first_name %> !</strong>
+        </h1>
+        <hr>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <p class="text-faded mb-5">Start looking threw our fabulous selection of beautiful and unique places all around the world. You can even put up your own special place for rent by creating a set.</p>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">Discover</a>
+        <%= link_to 'Create a set', new_set_path, class:"btn btn-primary btn-xl js-scroll-trigger" %>
 
-  <h2 class="landing_message">Hello <%= current_user.first_name %>!</h2><br>
-  <p class="landing_submessage">Please sign in/log in to rent a set !</p>
-  <div class="landing_login">
-    <li><%= link_to 'Create a set', new_set_path %></li>
-    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-    <li><%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %></li>
+      </div>
+    </div>
   </div>
+  <% else %>
 
-<% else %>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h1 class="text-uppercase">
+            <strong>Rent a fabulous set</strong>
+          </h1>
+          <hr>
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <p class="text-faded mb-5">Sign up to choose from our fabulous selection of unique places all around the world or to add your very own home for rent !</p>
+          <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-primary btn-xl js-scroll-trigger" %>
+        </div>
+      </div>
+    </div>
 
-  <h2 class="landing_message">Welcome</h2>
-  <div class="landing_login">
-    <li><%= link_to 'Sign up', new_user_registration_path %></li>
-    <li><%= link_to 'Login', new_user_session_path %></li>
-  </div>
+  <% end %>
+</header>
 
-<% end %>
+<div class="space_container">
+  <h4 class="category_title">Families of sets</h4>
+</div>
+
+<main role="main">
+    <section class="p-0" id="portfolio">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters popup-gallery">
+          <div class="col-lg-4 col-sm-6">
+            <a class="category-box" href="">
+              <%=image_tag("app1.jpg", class: "img_preview") %>
+              <div class="category-box-caption">
+                <div class="category-box-caption-content">
+                  <div class="project-category text-faded">
+                    Apartments
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="category-box" href="">
+              <%=image_tag("house0.jpg", class: "img_preview") %>
+              <div class="category-box-caption">
+                <div class="category-box-caption-content">
+                  <div class="project-category text-faded">
+                    Houses
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="category-box" href="#">
+                 <%=image_tag("vila1.jpg", class: "img_preview") %>
+              <div class="category-box-caption">
+                <div class="category-box-caption-content">
+                  <div class="project-category text-faded">
+                    Villas
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="category-box" href="#">
+              <%=image_tag("manor1.jpg", class: "img_preview") %>
+              <div class="category-box-caption">
+                <div class="category-box-caption-content">
+                  <div class="project-category text-faded">
+                    Manors
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="category-box" href="#">
+              <%=image_tag("castle1.jpg", class: "img_preview") %>
+              <div class="category-box-caption">
+                <div class="category-box-caption-content">
+                  <div class="project-category text-faded">
+                    Castles
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="category-box" href="#">
+              <%=image_tag("house4.jpeg", class: "img_preview") %>
+              <div class="category-box-caption">
+                <div class="category-box-caption-content">
+                  <div class="project-category text-faded">
+                    Cottages
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+ </main>
