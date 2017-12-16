@@ -12,7 +12,19 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @place.photo %>
+  <% @place.photos.each do |pic| %>
+    <%= image_tag pic.image.url %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+</p>
+
+<p>
+  <% @place.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
 </p>
 
 <p>
@@ -36,11 +48,11 @@
 </p>
 
 <p>
-  <strong>Ambience:</strong>
-  <%= @place.ambience %>
+  <strong>Area:</strong>
+  <%= @place.area %>
 </p>
 
-<p>
+<p>  
   <strong>Latitude:</strong>
   <%= @place.latitude %>
 </p>

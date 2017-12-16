@@ -1,4 +1,4 @@
-<%= form_with(model: place, local: true) do |form| %>
+<%= form_with(model: place, local: true, :class => 'Place-form') do |form| %>
   <% if place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
@@ -11,53 +11,70 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :place_user_id %>
-  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :place_name, max: 75, :class => 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :photo_id %>
-    <%= form.text_field :photo_id, id: :place_photo_id %>
-  </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :place_description, :class => 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :place_name %>
-  </div>
+    <div class="field">
+      <%= form.label :category %>
+      <%= form.select(:category, options_for_select(['House', 'Apartment', 'Villa', 'Mansion', 'Castle', 'Cottage' ]), {}, {:class => 'form-control'}) %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :place_description %>
-  </div>
+    <%= form.fields_for :photo do |p| %>
+    <div>
+      <%= p.label :image %>
+      <%= p.file_field :image, :multiple => true, :class => 'form-control-file' %>
+    </div>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, id: :place_category %>
-  </div>
+    <%= form.fields_for :tag do |t| %>
+    <div>
+      <%= form.label :tags %>
+      <%= t.text_field :name, :class => 'form-control awesomplete' %>
+    </div>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :place_address, :autocomplete => :off %>
-  </div>
+    <%# @tags.each do |tag| %>
+    <span><%#= tag.name %></span>
+    <%# end %>
 
-  <div class="field">
-    <%= form.label :ambience %>
-    <%= form.text_field :ambience, id: :place_ambience %>
-  </div>
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, id: :place_address, :autocomplete => :off, :class => 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :exposure %>
-    <%= form.number_field :exposure, id: :place_exposure %>
-  </div>
+    <div class="field">
+      <%= form.label :area %>
+      <%= form.number_field :area, id: :place_area, min: 1, max: 999, :class => 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :place_price %>
-  </div>
+    <div class="field">
+      <%= form.label :exposure %>
+      <%= form.number_field :exposure, id: :place_exposure, min: 0, max: 5, :class => 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price, id: :place_price, min: 1, max: 9999, :class => 'form-control' %>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to 'Back', places_path, :class => 'btn' %>
+      </div>
+      <div class="col">
+        <%= form.submit 'Submit', :class => 'btn btn-primary' %>
+      </div>
+
+    </div>
+
   </div>
 <% end %>
 <script type="text/javascript">
@@ -68,7 +85,7 @@
         event.preventDefault();
       }
     });
-    
+
     var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
     autocomplete.addListener('place_changed', onPlaceChanged);
   }
