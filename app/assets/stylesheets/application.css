@@ -14,3 +14,251 @@
  *= require_self
  *= require jquery-ui
  */
+
+body {
+  background-color: #F1F1F1;
+  width: 100%;
+  margin: 0;
+}
+
+/*
+** NAVBAR
+*/
+
+.navbar {
+  top: 0;
+  z-index: 50;
+  position: fixed;
+  width: 100%;
+  background-color: #fefefe;
+  border-bottom: 1px solid #EEE;
+}
+
+.nav-user-welcome-msg{
+  padding: 11px 10px 0 0;
+}
+
+.img-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {color: #157EFB}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    /*background-color: #157EFB;*/
+}
+
+/*
+** SIGNUP FORM :
+*/
+
+form {
+  width: 70%;
+}
+
+.signup_title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.signup_form {
+  margin-top: 130px;
+  margin-left: 30px;
+}
+
+.signup_form .field {
+  width: 300px;
+}
+
+/*APPLICATION FIELD*/
+
+.application_field {
+  margin-bottom: 25px;
+}
+
+/*.login_title {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 200;
+}
+
+.login_field {
+  margin-bottom: 25px;
+}*/
+
+.new_user {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin-heading{
+  margin-bottom: 20px;
+}
+.signin_container {
+  margin-top: 130px;
+  /*text-align: center;*/
+}
+input#user_password.form-control {
+  margin-bottom: 15px;
+}
+.signin_container.checkbox{
+  text-align: left;
+  margin-bottom: 15px;
+}
+.actions{
+  margin-bottom: 15px;
+}
+
+
+/*
+** HEAD CONTAINER
+*/
+
+@media (min-width: 768px) {
+    header.masthead p {
+      font-size: 1.15rem; } }
+  @media (min-width: 992px) {
+    header.masthead {
+      height: 100vh;
+      min-height: 650px;
+      padding-top: 0;
+      padding-bottom: 0; }
+
+header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 56px);
+  background-image: url(header.jpg);
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.layer {
+  position: absolute;
+  top: 0;
+  background-color: rgba(11, 24, 39, 0.6);
+  width: 100%;
+  height: 100%;
+}
+
+
+/*
+** CATEGORIES OF SETS
+*/
+
+h4.category_title{
+  padding: 50px 20px 30px 40px;
+}
+
+h4.category-title::before {
+  content: "";
+  background-color: #000;
+  border-color: black;
+  border-style: solid;
+  margin-right: 10px;
+}
+
+.space_container {
+  height: 100px;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.img_preview {
+height: 100%;
+width: 100%;
+}
+
+.category-box {
+  position: relative;
+  display: block;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.category-box .category-box-caption {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    background: rgba(11, 24, 39, 0.8);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.category-box .category-box-caption .category-box-caption-content {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      text-align: center;
+}
+.project-category {
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.category-box .category-box-caption .category-box-caption-content .project-category,
+     .category-box .category-box-caption .category-box-caption-content .project-name {
+       padding: 0 15px;
+       font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
+     .category-box .category-box-caption .category-box-caption-content
+     .category-box .category-box-caption .category-box-caption-content .project-name {
+       font-size: 18px; }
+ .category-box:hover .category-box-caption {
+   opacity: 1; }
+ .category-box:focus {
+   outline: none; }
+ @media (min-width: 768px) {
+   .category-box .category-box-caption .category-box-caption-content .project-category {
+     font-size: 16px; }
+   .category-box .category-box-caption .category-box-caption-content .project-name {
+     font-size: 22px; } }
