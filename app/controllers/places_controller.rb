@@ -5,6 +5,7 @@
   # GET /places.json
   def index
     @places = Place.all
+    @tags = Tag.all
   end
 
   # GET /places/1

@@ -36,9 +36,13 @@
   <%= form.fields_for :tag do |t| %>
     <div>
       <%= form.label :tags %>
-      <%= t.text_field :name %>
+      <%= t.text_field :name, :class => 'awesomplete' %>
     </div>
   <% end %>
+
+  <%# @tags.each do |tag| %>
+    <span><%#= tag.name %></span>
+  <%# end %>
 
   <div class="field">
     <%= form.label :address %>
@@ -49,8 +53,6 @@
     <%= form.label :city %>
     <%= form.text_field :city, id: :place_city %>
   </div>
-
-  <!-- <input class="awesomplete"/> -->
 
   <div class="field">
     <%= form.label :area %>

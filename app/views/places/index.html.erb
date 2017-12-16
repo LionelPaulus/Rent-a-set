@@ -40,6 +40,13 @@
   </tbody>
 </table>
 
+<h1>Tags :</h1>
+<% @tags.each do |tag| %>
+  <div class="">
+    <%= tag.name %>
+    <%= tag.place_id %>
+  </div>
+<% end %>
 <br>
 
 <%= link_to 'New Place', new_place_path %>
