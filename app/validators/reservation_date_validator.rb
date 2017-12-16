@@ -4,4 +4,4 @@ class ReservationDateValidator < ActiveModel::Validator
       record.errors.add(:end_time, 'cannot be early to start time')
     end
   end
-ende
+end
