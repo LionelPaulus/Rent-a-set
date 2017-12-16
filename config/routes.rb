@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :places do
-    resources :bookings, only: [:create]
-  end
+  get 'people/index'
+
   devise_for :users, path: 'auth',
                      path_names: {
                         sign_in: 'login',
@@ -10,5 +9,8 @@ Rails.application.routes.draw do
                      }
 
   root 'pages#home'
+
+  resources :set do
+  end
 
 end
