@@ -37,6 +37,69 @@
   <% end %>
 </header>
 
+<section id="searchbox" class="search_container">
+  <div class="centered_search_container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="input-group" id="adv-search">
+            <input type="text" class="form-control" placeholder="What are you looking for?" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group" id="adv-search1">
+          <input type="text" class="form-control" placeholder="Category"/>
+          <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form class="form-horizontal" role="form">
+                                  <div class="checkbox">
+                                    <label><input type="checkbox" value="">Apartments</label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label><input type="checkbox" value="">Houses</label>
+                                  </div>
+                                  <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="" disabled>Villas</label>
+                                  </div>
+                                  <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="" disabled>Manors</label>
+                                  </div>
+                                  <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="" disabled>Castles</label>
+                                  </div>
+                                  <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="" disabled>Cottages</label>
+                                  </div>
+                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button> -->
+                    </div>
+                </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class='col-sm-3'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</section>
+
+
+
 <div class="space_container">
   <h4 class="category_title">Families of sets</h4>
 </div>
@@ -123,3 +186,51 @@
 
 
  </main>
+
+ <script type="text/javascript">
+
+     $(function () {
+    var bindDatePicker = function() {
+    $(".date").datetimepicker({
+        format:'YYYY-MM-DD',
+        icons: {
+          time: "fa fa-clock-o",
+          date: "fa fa-calendar",
+          up: "fa fa-arrow-up",
+          down: "fa fa-arrow-down"
+        }
+    }).find('input:first').on("blur",function () {
+      var date = parseDate($(this).val());
+
+      if (! isValidDate(date)) {
+        date = moment().format('YYYY-MM-DD');
+      }
+
+      $(this).val(date);
+    });
+    }
+
+    var isValidDate = function(value, format) {
+    format = format || false;
+    if (format) {
+      value = parseDate(value);
+    }
+
+    var timestamp = Date.parse(value);
+
+    return isNaN(timestamp) == false;
+    }
+
+    var parseDate = function(value) {
+    var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+    if (m)
+      value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+    return value;
+    }
+
+    bindDatePicker();
+    });
+
+
+ </script>
