@@ -38,22 +38,12 @@
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address, id: :place_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :place_city %>
+    <%= form.text_field :address, id: :place_address, :autocomplete => :off %>
   </div>
 
   <div class="field">
     <%= form.label :ambience %>
     <%= form.text_field :ambience, id: :place_ambience %>
-  </div>
-
-  <div class="field">
-    <%= form.label :area %>
-    <%= form.number_field :area, id: :place_area %>
   </div>
 
   <div class="field">
@@ -70,3 +60,21 @@
     <%= form.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+  var element = document.getElementById('place_address');
+  function initAutocomplete() {
+    google.maps.event.addDomListener(element, 'keydown', function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+      }
+    });
+    
+    var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+    autocomplete.addListener('place_changed', onPlaceChanged);
+  }
+  function onPlaceChanged() {
+    var place = this.getPlace();
+    element.value = place.formatted_address;
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwluyRb2sgG_bfxjbL9RB7dj9dSTf7zU4&libraries=places&callback=initAutocomplete" async defer></script>
