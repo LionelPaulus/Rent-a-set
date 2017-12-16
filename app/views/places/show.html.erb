@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <div id="notice"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div id="alert"><%= flash[:alert] %></div>
+<% end %>
 
 <p>
   <strong>User:</strong>
@@ -43,13 +48,18 @@
 </p>
 
 <p>
-  <strong>City:</strong>
-  <%= @place.city %>
+  <strong>Area:</strong>
+  <%= @place.area %>
+</p>
+
+<p>  
+  <strong>Latitude:</strong>
+  <%= @place.latitude %>
 </p>
 
 <p>
-  <strong>Area:</strong>
-  <%= @place.area %>
+  <strong>Longitude:</strong>
+  <%= @place.longitude %>
 </p>
 
 <p>

@@ -86,6 +86,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :city, :area, :exposure, :price, :photo, photo_attributes: [:image], tag_attributes: [:name])
+      params.require(:place).permit(:user_id, :photo_id, :name, :description, :category, :address, :exposure, :price, :photo, photo_attributes: [:image], tag_attributes: [:name])
     end
 end
