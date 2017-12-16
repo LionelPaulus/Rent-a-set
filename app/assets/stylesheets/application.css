@@ -268,30 +268,6 @@ input#user_password.form-control {
   }
 }
 
-.Header {
-  margin-bottom: 60px;
-}
-
-.Nav {
-  min-height: 60px;
-}
-
-.Place {
-  padding-top: 20px;
-}
-
-.Place-form {
-  width: auto;
-}
-
-.Place-row  {
-  justify-content: center;
-}
-
-.center-align {
-  justify-content: center;
-}
-
 .category-box .category-box-caption .category-box-caption-content .project-category,
      .category-box .category-box-caption .category-box-caption-content .project-name {
        padding: 0 15px;
