@@ -16,6 +16,7 @@ HETIC-G1-10
 ## Resources
 - [How to install Ruby](https://gist.github.com/maxime-d/ad27f0f6607a75639ebcd47afc4ad404)
 - [Ruby courses](https://github.com/maxime-d/hetic_rails)
+- [CLI commands](https://github.com/LionelPaulus/Rent-a-set/wiki/CLI-Rails)
 
 ## Branch conventions
 | Type    | Branch name            | Example                  |
