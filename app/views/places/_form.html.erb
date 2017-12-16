@@ -1,0 +1,72 @@
+<%= form_with(model: place, local: true) do |form| %>
+  <% if place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :place_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo_id %>
+    <%= form.text_field :photo_id, id: :place_photo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :place_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :place_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category, id: :place_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :place_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :place_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ambience %>
+    <%= form.text_field :ambience, id: :place_ambience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.number_field :area, id: :place_area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exposure %>
+    <%= form.number_field :exposure, id: :place_exposure %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :place_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
