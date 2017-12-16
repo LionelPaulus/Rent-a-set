@@ -10,11 +10,11 @@
 
   <body>
     <% if current_user %>
-    <header>
-      <nav class="navbar navbar-default">
+    <header class="Header">
+      <nav class="navbar navbar-default Nav">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">rent a set</a>
+            <%= link_to 'Rent a Set', root_path, :class => 'navbar-brand' %>
           </div>
           <ul class="nav justify-content-end">
 
@@ -39,11 +39,11 @@
     </header>
 
     <% else %>
-    <header>
-      <nav class="navbar navbar-default">
+    <header class="Header">
+      <nav class="navbar navbar-default Nav">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">rent a set</a>
+            <%= link_to 'Rent a Set', root_path, :class => 'navbar-brand' %>
           </div>
           <ul class="nav justify-content-end">
               <li class="nav-item">

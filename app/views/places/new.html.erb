@@ -1,5 +1,15 @@
-<h1>New Place</h1>
+<div class="container Place">
 
-<%= render 'form', place: @place %>
+  <div class="row Place-row">
+    <div class="col-6">
+      <h2 class="Place-title">Create a new set</h2>
+    </div>
+  </div>
 
-<%= link_to 'Back', places_path %>
+  <div class="row Place-row">
+    <div class="col-6">
+      <%= render 'form', place: @place %>
+    </div>
+  </div>
+
+</div>

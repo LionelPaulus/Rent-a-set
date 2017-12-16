@@ -106,12 +106,7 @@ form {
 }
 
 .signup_form {
-  margin-top: 130px;
-  margin-left: 30px;
-}
-
-.signup_form .field {
-  width: 300px;
+  margin-top: 30px;
 }
 
 /*APPLICATION FIELD*/
@@ -133,9 +128,8 @@ form {
 }*/
 
 .new_user {
-  max-width: 330px;
-  padding: 15px;
   margin: 0 auto;
+  width: auto;
 }
 
 .form-signin-heading {
@@ -172,7 +166,7 @@ input#user_password.form-control {
 
 @media (min-width: 992px) {
   header.masthead {
-    height: 100vh;
+    height: calc(100vh - 60px);
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
@@ -198,7 +192,7 @@ input#user_password.form-control {
   ** CATEGORIES OF SETS
   */
   h4.category_title {
-    padding: 50px 20px 30px 40px;
+    margin-left: 20px;
   }
   h4.category-title::before {
     content: "";
@@ -212,6 +206,8 @@ input#user_password.form-control {
     width: 100%;
     background-color: #fff;
     z-index: 100;
+    display: flex;
+    align-items: center;
   }
   .img_preview {
     height: 100%;
@@ -270,4 +266,28 @@ input#user_password.form-control {
       font-size: 22px;
     }
   }
+}
+
+.Header {
+  margin-bottom: 60px;
+}
+
+.Nav {
+  min-height: 60px;
+}
+
+.Place {
+  padding-top: 20px;
+}
+
+.Place-form {
+  width: auto;
+}
+
+.Place-row  {
+  justify-content: center;
+}
+
+.center-align {
+  justify-content: center;
 }
