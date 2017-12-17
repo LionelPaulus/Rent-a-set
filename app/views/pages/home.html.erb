@@ -1,22 +1,24 @@
 <header class="masthead text-center text-white d-flex">
   <div class="layer"></div>
   <% if current_user %>
-  <div class="container my-auto">
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <h1 class="text-uppercase">
-          <strong>Hello <%= current_user.first_name %> !</strong>
-        </h1>
-        <hr>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <p class="text-faded mb-5">Start looking threw our fabulous selection of beautiful and unique places all around the world. You can even put up your own special place for rent by creating a set.</p>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/places">Discover</a>
-        <%= link_to 'Create a set', new_place_path, class:"btn btn-primary btn-xl js-scroll-trigger" %>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h1 class="text-uppercase">
+            <strong>Hello
+              <%= current_user.first_name %>
+              !</strong>
+          </h1>
+          <hr>
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <p class="text-faded mb-5">Start looking threw our fabulous selection of beautiful and unique places all around the world. You can even put up your own special place for rent by creating a set.</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="/places">Discover</a>
+          <%= link_to 'Create a set', new_place_path, class:"btn btn-primary btn-xl js-scroll-trigger" %>
 
+        </div>
       </div>
     </div>
-  </div>
   <% else %>
 
     <div class="container my-auto">
@@ -39,206 +41,275 @@
 
 <section id="searchbox" class="search_container">
   <div class="centered_search_container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="input-group" id="adv-search">
-            <input type="text" class="form-control" placeholder="What are you looking for?" />
+    <form class="form-horizontal" role="form" method="get">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group" id="adv-search">
+            <input type="text" class="form-control" placeholder="Where ?"/>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="input-group" id="adv-search1">
-          <input type="text" class="form-control" placeholder="Category"/>
-          <div class="input-group-btn">
-                    <div class="btn-group" role="group">
-                        <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <form class="form-horizontal" role="form" method="get">
-                                  <div class="checkbox">
-                                    <label><input name="cat_ap[]" type="checkbox" value="Apartments">Apartments</label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label><input name="cat_ap[]" type="checkbox" value="Houses">Houses</label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label><input name="cat_ap[]" type="checkbox" value="Villas">Villas</label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label><input name="cat_ap[]" type="checkbox" value="Manors">Manors</label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label><input name="cat_ap[]" type="checkbox" value="Castles">Castles</label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label><input name="cat_ap[]" type="checkbox" value="Cottages">Cottages</label>
-                                  </div>
-                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                </form>
-                            </div>
-                        </div>
+        <div class="col-md-4">
+
+          <div class="input-group" id="adv-search1">
+            <input type="text" class="form-control" placeholder="Category"/>
+            <div class="input-group-btn">
+              <div class="btn-group" role="group">
+                <div class="dropdown dropdown-lg">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span></button>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                      <div class="checkbox">
+                        <label><input name="cat_ap[]" type="checkbox" value="Apartments">Apartments</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input name="cat_ap[]" type="checkbox" value="Houses">Houses</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input name="cat_ap[]" type="checkbox" value="Villas">Villas</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input name="cat_ap[]" type="checkbox" value="Manors">Manors</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input name="cat_ap[]" type="checkbox" value="Castles">Castles</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input name="cat_ap[]" type="checkbox" value="Cottages">Cottages</label>
+                      </div>
                     </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class='col-md-4'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <label class="start_date">From</label>
+              <input type='datetime-local' class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-4'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <label class="end_date">To</label>
+              <input type='datetime-local' class="form-control"/>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-
-
-    <div class="row">
-        <div class='col-sm-4'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <label class="start_date">From</label>
-                    <input type='datetime-local' class="form-control"/>
-                </div>
-            </div>
+      <div class="row">
+        <div class='col-md-8 rangegroup'>
+            <label class="start_date">Exposure level</label>
+            <div id="exposure_slider"></div>
         </div>
-        <div class='col-sm-4'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <label class="end_date">To</label>
-                    <input type='datetime-local' class="form-control"/>
-                </div>
-            </div>
+      </div>
+      <div class="row">
+        <div class='col-md-8 rangegroup'>
+            <label class="start_date">Price range</label>
+            <div id="price_slider"></div>
         </div>
-    </div>
+      </div>
 
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+    </form>
   </div>
 </section>
-
-
 
 <div class="space_container">
   <h4 class="category_title">Families of sets</h4>
 </div>
 
 <main role="main">
-    <section class="p-0" id="portfolio">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="">
-              <%=image_tag("house0.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Houses
-                  </div>
+  <section class="p-0" id="portfolio">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters popup-gallery">
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="">
+            <%=image_tag("house0.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Houses
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="">
-              <%=image_tag("app1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Apartments
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="">
+            <%=image_tag("app1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Apartments
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-                 <%=image_tag("vila1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Villas
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("vila1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Villas
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-              <%=image_tag("manor1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Mansions
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("manor1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Mansions
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-              <%=image_tag("castle1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Castles
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("castle1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Castles
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-              <%=image_tag("house4.jpeg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Cottages
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("house4.jpeg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Cottages
                 </div>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-
- </main>
-
- <script type="text/javascript">
-
-     $(function () {
-    var bindDatePicker = function() {
-    $(".date").datetimepicker({
-        format:'YYYY-MM-DD',
-        icons: {
-          time: "fa fa-clock-o",
-          date: "fa fa-calendar",
-          up: "fa fa-arrow-up",
-          down: "fa fa-arrow-down"
-        }
-    }).find('input:first').on("blur",function () {
-      var date = parseDate($(this).val());
-
-      if (! isValidDate(date)) {
-        date = moment().format('YYYY-MM-DD');
+<script type="text/javascript">
+function updateTextInput(val) {
+        document.getElementById('textInput').value=val;
+      }
+function updatePriceInput(val) {
+      document.getElementById('priceInput').value=val;
       }
 
-      $(this).val(date);
-    });
+function collision($div1, $div2) {
+      var x1 = $div1.offset().left;
+      var w1 = 40;
+      var r1 = x1 + w1;
+      var x2 = $div2.offset().left;
+      var w2 = 40;
+      var r2 = x2 + w2;
+
+      if (r1 < x2 || x1 > r2) return false;
+      return true;
+
     }
 
-    var isValidDate = function(value, format) {
-    format = format || false;
-    if (format) {
-      value = parseDate(value);
+// // slider call
+
+$('#exposure_slider').slider({
+	range: true,
+	min: 5,
+	max: 1000,
+	values: [ 75, 300 ],
+	slide: function(event, ui) {
+
+		$('.ui-slider-handle:eq(0) .exp-range-min').html('$' + ui.values[ 0 ]);
+		$('.ui-slider-handle:eq(1) .exp-range-max').html('$' + ui.values[ 1 ]);
+		$('.exp-range-both').html('<i>$' + ui.values[ 0 ] + ' - </i>$' + ui.values[ 1 ] );
+
+		//
+
+    if ( ui.values[0] == ui.values[1] ) {
+      $('.exp-range-both i').css('display', 'none');
+    } else {
+      $('.exp-range-both i').css('display', 'inline');
     }
 
-    var timestamp = Date.parse(value);
+        //
 
-    return isNaN(timestamp) == false;
+		if (collision($('.exp-range-min'), $('.exp-range-max')) == true) {
+			$('.exp-range-min, .exp-range-max').css('opacity', '0');
+			$('.exp-range-both').css('display', 'block');
+		} else {
+			$('.exp-range-min, .exp-range-max').css('opacity', '1');
+			$('.exp-range-both').css('display', 'none');
+		}
+
+	}
+});
+
+$('.ui-slider-range').append('<span class="exp-range-both exp_value"><i>$' + $('#exposure_slider').slider('values', 0 ) + ' - </i>' + $('#exposure_slider').slider('values', 1 ) + '</span>');
+
+$('.ui-slider-handle:eq(0)').append('<span class="exp-range-min exp_value">$' + $('#exposure_slider').slider('values', 0 ) + '</span>');
+
+$('.ui-slider-handle:eq(1)').append('<span class="exp-range-max exp_value">$' + $('#exposure_slider').slider('values', 1 ) + '</span>');
+
+
+
+
+// PRICE SLIDER
+
+$('#price_slider').slider({
+	range: true,
+	min: 5,
+	max: 1000,
+	values: [ 75, 300 ],
+	slide: function(event, ui) {
+
+		$('.ui-slider-handle:eq(0) .price-range-min').html('$' + ui.values[ 0 ]);
+		$('.ui-slider-handle:eq(1) .price-range-max').html('$' + ui.values[ 1 ]);
+		$('.price-range-both').html('<i>$' + ui.values[ 0 ] + ' - </i>$' + ui.values[ 1 ] );
+
+		//
+
+    if ( ui.values[0] == ui.values[1] ) {
+      $('.price-range-both i').css('display', 'none');
+    } else {
+      $('.price-range-both i').css('display', 'inline');
     }
 
-    var parseDate = function(value) {
-    var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-    if (m)
-      value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+        //
 
-    return value;
-    }
+		if (collision($('.price-range-min'), $('.price-range-max')) == true) {
+			$('.price-range-min, .price-range-max').css('opacity', '0');
+			$('.price-range-both').css('display', 'block');
+		} else {
+			$('.price-range-min, .price-range-max').css('opacity', '1');
+			$('.price-range-both').css('display', 'none');
+		}
 
-    bindDatePicker();
-    });
+	}
+});
 
+$('.ui-slider-range').append('<span class="price-range-both value"><i>$' + $('#price_slider').slider('values', 0 ) + ' - </i>' + $('#price_slider').slider('values', 1 ) + '</span>');
 
- </script>
+$('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">$' + $('#price_slider').slider('values', 0 ) + '</span>');
+
+$('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">$' + $('#price_slider').slider('values', 1 ) + '</span>');
+</script>

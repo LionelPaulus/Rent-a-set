@@ -96,9 +96,9 @@ body {
 ** SIGNUP FORM :
 */
 
-form {
+/* form {
   width: 70%;
-}
+} */
 
 .signup_title {
   font-size: 20px;
@@ -296,11 +296,12 @@ input#user_password.form-control {
 .centered_search_container {
     margin: 0 auto;
     text-align: center;
-    width: 70%;
+    width: 80%;
 }
 
 .input-group{
   margin-bottom: 20px;
+  z-index: 100;
 }
 .dropdown.dropdown-lg .dropdown-menu {
     margin-top: -1px;
@@ -308,10 +309,11 @@ input#user_password.form-control {
 }
 .input-group-btn .btn-group {
     display: flex !important;
+    z-index: 100;
 }
 .btn-group .btn {
-    border-radius: 0;
-    border: solid 1px #CED4DA;
+    border-radius: 5px;
+    border: solid 2px #0c546012;
     margin-left: -1px;
 }
 .btn-group .btn:last-child {
@@ -343,6 +345,11 @@ input#user_password.form-control {
         min-width: 290px;
     }
 }
+.form-control{
+  border: solid 2px #0c546012;
+  border-radius: 5px;
+  z-index: -50;
+}
 
 .categories_list {
 
@@ -362,8 +369,71 @@ input#user_password.form-control {
 .start_date {
   padding-top: 8px;
   padding-right: 10px;
+  color: #868E95;
 }
 .end_date {
   padding-top: 8px;
   padding-right: 10px;
+  color: #868E95;
+}
+input[type="range"] {
+    position: relative;
+    margin-left: 1em;
+}
+input[type="range"]:after,
+input[type="range"]:before {
+    position: absolute;
+    top: 1em;
+    color: #aaa;
+}
+input[type="range"]:before {
+    left:0em;
+    content: attr(min);
+}
+input[type="range"]:after {
+    right: 0em;
+    content: attr(max);
+}
+
+.exposure_value {
+display: inline-block;
+}
+.rangegroup {
+  display: inherit;
+  text-align: left;
+}
+
+.value {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  margin: 0 0 0 -20px;
+  width: 40px;
+  text-align: center;
+  display: block;
+
+  /* optional */
+
+  font-weight: normal;
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.price-range-both.value {
+  width: 50px;
+  margin: 0 0 0 -50px;
+  top: 26px;
+}
+
+.price-range-both {
+  display: none;
+}
+
+.value i {
+  font-style: normal;
+}
+
+.ui-slider-horizontal {
+  width: 350px;
 }
