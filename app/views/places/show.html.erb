@@ -39,6 +39,12 @@
     <div class="col-12">
       <div class="row">
         <div class="col-8">
+          <% if flash[:notice] %>
+          <div id="notice"><%= flash[:notice] %></div>
+          <% end %>
+          <% if flash[:alert] %>
+          <div id="alert"><%= flash[:alert] %></div>
+          <% end %>
           <p>
             <h2><%= @place.name %></h2>
           </p>
@@ -90,45 +96,12 @@
           </p>
         </div>
         <div class="col-4 vertical-divider">
-          <%= form_for(@booking, url: {action: "create"}, local: true) do |form| %>
-            <% if @booking.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-
-                <ul>
-                <% booking.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %>
-
-            Price: <div id="place-price" style="display:inline;">0</div>€
-
-            <%= form.hidden_field :place_id, id: :booking_place_id, :value => @place.id %>
-
-            <%= form.label :start_time %>
-            <%= form.datetime_local_field :start_time %>
-
-            <%= form.label :end_time %>
-            <%= form.datetime_local_field :end_time %>
-
-            <div class="actions">
-              <%= form.submit %>
-            </div>
-          <% end %>
+          <%= render 'bookings/form', booking: @booking %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<% if flash[:notice] %>
-<div id="notice"><%= flash[:notice] %></div>
-<% end %>
-<% if flash[:alert] %>
-<div id="alert"><%= flash[:alert] %></div>
-<% end %>
 
 <%= link_to 'Edit', edit_place_path(@place) %>
 |
