@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row  justify-content-center">
-    <div class="col-8">
+    <div class="col-12">
       <div class="carousel slide Carousel-big" id="carousel" data-ride="carousel">
         <ol class="carousel-indicators">
           <% @place.photos.each_with_index do |pic, i| %>
@@ -36,56 +36,89 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-8">
-      <p>
-        <strong>Name:</strong>
-        <%= @place.name %>
-      </p>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-8">
+          <p>
+            <h2><%= @place.name %></h2>
+          </p>
+          <p>
+            <strong>Category:</strong>
+            <%= @place.category %>
+          </p>
+          <p>
+            <% @place.tags.each do |tag| %>
+            #<%= tag.name %>
+            <% end %>
+          </p>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @place.description %>
-      </p>
-      <p>
-        <strong>Tags:</strong>
-        <% @place.tags.each do |tag| %>
-          <%= tag.name %>
-        <% end %>
-      </p>
-      <p>
-        <strong>Category:</strong>
-        <%= @place.category %>
-      </p>
+          <hr>
 
-      <p>
-        <strong>Address:</strong>
-        <%= @place.address %>
-      </p>
+          <p>
+            <strong>Description:</strong>
+            <%= @place.description %>
+          </p>
 
-      <p>
-        <strong>Area:</strong>
-        <%= @place.area %>
-      </p>
+          <p>
+            <strong>Address:</strong>
+            <%= @place.address %>
+          </p>
 
-      <p>
-        <strong>Latitude:</strong>
-        <%= @place.latitude %>
-      </p>
+          <p>
+            <strong>Area:</strong>
+            <%= @place.area %>m²
+          </p>
 
-      <p>
-        <strong>Longitude:</strong>
-        <%= @place.longitude %>
-      </p>
+          <p>
+            <strong>Latitude:</strong>
+            <%= @place.latitude %>
+          </p>
 
-      <p>
-        <strong>Exposure:</strong>
-        <%= @place.exposure %>
-      </p>
+          <p>
+            <strong>Longitude:</strong>
+            <%= @place.longitude %>
+          </p>
 
-      <p>
-        <strong>Price:</strong>
-        <%= @place.price %>
-      </p>
+          <p>
+            <strong>Exposure:</strong>
+            <%= @place.exposure %>/5
+          </p>
+
+          <p>
+            <strong>Price:</strong>
+            $<%= @place.price %>/d
+          </p>
+        </div>
+        <div class="col-4 vertical-divider">
+          <%= form_for(@booking, url: {action: "create"}, local: true) do |form| %>
+            <% if @booking.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+                <ul>
+                <% booking.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            Price: <div id="place-price" style="display:inline;">0</div>€
+
+            <%= form.hidden_field :place_id, id: :booking_place_id, :value => @place.id %>
+
+            <%= form.label :start_time %>
+            <%= form.datetime_local_field :start_time %>
+
+            <%= form.label :end_time %>
+            <%= form.datetime_local_field :end_time %>
+
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
