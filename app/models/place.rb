@@ -24,4 +24,8 @@ class Place < ApplicationRecord
         params[:start_time], params[:end_time]
       )
   }
+  scope :user_bookings, lambda { |user_id|
+    joins(:bookings)
+      .where(user_id: user_id)
+  }
 end
