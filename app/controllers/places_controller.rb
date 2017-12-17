@@ -72,16 +72,6 @@
     end
   end
 
-  # DELETE /places/1
-  # DELETE /places/1.json
-  def destroy
-    @place.destroy
-    respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
