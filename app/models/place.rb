@@ -16,4 +16,12 @@ class Place < ApplicationRecord
   validates :area, numericality: { only_integer: true, greater_than: 0, less_than: 1000 }
   validates :exposure, numericality: { only_integer:true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
   validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 10000 }
+
+  scope :between, lambda { |params|
+    joins(:bookings)
+      .where(
+        '? BETWEEN bookings.start_time AND bookings.end_time OR ? BETWEEN bookings.start_time AND bookings.end_time',
+        params[:start_time], params[:end_time]
+      )
+  }
 end
