@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
 
+  def my_bookings
+    @bookings = Booking.where(user_id: current_user.id)
+  end
+
   def index
     @bookings = Booking.where(place_id: params[:place_id])
   end
@@ -24,14 +28,7 @@ class BookingsController < ApplicationController
         if start_time < DateTime.now
           flash[:alert] = "Your start time is before today 🤦‍"
         else
-          # booked = Place.joins(:bookings), Booking.between(start_time, end_time)
-          # Doesn't work; always not available
-
-          booked = Place.joins(:bookings)
-            .where('? BETWEEN bookings.start_time AND bookings.end_time OR
-                    ? BETWEEN bookings.start_time AND bookings.end_time',
-                    start_time, end_time)
-
+          booked = Place.between( { start_time: start_time, end_time: end_time } );
           available = Place.where.not(id: booked).exists?
 
           if available

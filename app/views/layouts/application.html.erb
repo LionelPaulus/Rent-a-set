@@ -15,7 +15,7 @@
     <% if current_user %>
     <header class="Header">
       <nav class="navbar navbar-default Nav">
-        <div class="container-fluid">
+        <div class="container">
           <div class="navbar-header">
             <%= link_to 'Rent a Set', root_path, :class => 'navbar-brand' %>
           </div>
@@ -32,6 +32,7 @@
                   <div class="dropdown-content">
                     <a href="#">Profile</a>
                     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                    <%= link_to 'My bookings', my_bookings_path %>
                   </div>
                 </div>
 
