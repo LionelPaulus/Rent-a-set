@@ -19,6 +19,7 @@ body {
   /*background-color: #F1F1F1;*/
   width: 100%;
   margin: 0;
+  padding-bottom: 0;
 }
 
 /*
@@ -422,5 +423,4 @@ input[type="range"]:after {
 
 .align {
   text-align: center;
-  margin: 0 auto;
 }
