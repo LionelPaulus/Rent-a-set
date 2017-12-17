@@ -1,1 +1,18 @@
-<h1>coucou</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>My bookings</h3>
+    </div>
+  </div>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-12">
+      booking found
+      <br>
+      <%= booking.start_time %>
+      <br>
+      place_id: <%= booking.place_id %>
+    </div>
+    <% end %>
+  </div>
+</div>
