@@ -27,6 +27,11 @@
 
   # GET /places/1/edit
   def edit
+    @place = Place.find(params[:id])
+    if @place.user_id != current_user.id
+      flash[:alert] = "You can only edit your own sets #nicetry"
+      redirect_to place
+    end
   end
 
   # POST /places
