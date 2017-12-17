@@ -1,1 +1,26 @@
-<h1>coucou</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>My bookings</h3>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <% @bookings.each_with_index do |booking, index| %>
+    <div class="col-12">
+      <h5>Booking n°<%= index+1 %></h5>
+      <div>
+        Set reference: #000<%= booking.place_id %>
+      </div>
+      <br>
+      <div>
+        Start time: <%= booking.start_time %>
+      </div>
+      <div>
+        End time: <%= booking.end_time %>
+      </div>
+      <hr>
+    </div>
+    <% end %>
+  </div>
+</div>
