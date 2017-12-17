@@ -55,41 +55,49 @@
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
                                 <form class="form-horizontal" role="form">
                                   <div class="checkbox">
-                                    <label><input type="checkbox" value="">Apartments</label>
+                                    <label><input id="cat_ap" type="checkbox" value="Apartments">Apartments</label>
                                   </div>
                                   <div class="checkbox">
-                                    <label><input type="checkbox" value="">Houses</label>
+                                    <label><input id="cat_ap" type="checkbox" value="Houses">Houses</label>
                                   </div>
                                   <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Villas</label>
+                                    <label><input id="cat_ap" type="checkbox" value="Villas">Villas</label>
                                   </div>
                                   <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Manors</label>
+                                    <label><input type="checkbox" value="Manors">Manors</label>
                                   </div>
                                   <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Castles</label>
+                                    <label><input type="checkbox" value="Castles">Castles</label>
                                   </div>
                                   <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Cottages</label>
+                                    <label><input type="checkbox" value="Cottages">Cottages</label>
                                   </div>
                                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                                 </form>
                             </div>
                         </div>
-                        <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button> -->
                     </div>
                 </div>
         </div>
       </div>
     </div>
 
+
+
     <div class="row">
-        <div class='col-sm-3'>
+        <div class='col-sm-4'>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                    <label class="start_date">From</label>
+                    <input type='datetime-local' class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-4'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <label class="end_date">To</label>
+                    <input type='datetime-local' class="form-control"/>
                 </div>
             </div>
         </div>

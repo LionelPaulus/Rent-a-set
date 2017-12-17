@@ -359,3 +359,11 @@ input#user_password.form-control {
 .checkbox input {
   margin-right: 10px;
 }
+.start_date {
+  padding-top: 8px;
+  padding-right: 10px;
+}
+.end_date {
+  padding-top: 8px;
+  padding-right: 10px;
+}
