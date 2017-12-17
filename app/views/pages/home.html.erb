@@ -50,39 +50,17 @@
           </div>
         </div>
         <div class="col-md-4">
-
-          <div class="input-group" id="adv-search1">
-            <input type="text" class="form-control" placeholder="Category"/>
-            <div class="input-group-btn">
-              <div class="btn-group" role="group">
-                <div class="dropdown dropdown-lg">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span class="caret"></span></button>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                      <div class="checkbox">
-                        <label><input name="cat_ap[]" type="checkbox" value="Apartments">Apartments</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input name="cat_ap[]" type="checkbox" value="Houses">Houses</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input name="cat_ap[]" type="checkbox" value="Villas">Villas</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input name="cat_ap[]" type="checkbox" value="Manors">Manors</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input name="cat_ap[]" type="checkbox" value="Castles">Castles</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input name="cat_ap[]" type="checkbox" value="Cottages">Cottages</label>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <label>Category</label>
+            <select class="selectpicker" id="interet">
+              <option value="musique">Apartments</option>
+              <option value="cinema">Houses</option>
+              <option value="sport">Villas</option>
+              <option value="jeuvideo">Manors</option>
+              <option value="lecture">Castles</option>
+              <option value="lecture">Cottages</option>
+            </select>
         </div>
+      </div>
 
       </div>
 
@@ -217,99 +195,4 @@ function updatePriceInput(val) {
       document.getElementById('priceInput').value=val;
       }
 
-function collision($div1, $div2) {
-      var x1 = $div1.offset().left;
-      var w1 = 40;
-      var r1 = x1 + w1;
-      var x2 = $div2.offset().left;
-      var w2 = 40;
-      var r2 = x2 + w2;
-
-      if (r1 < x2 || x1 > r2) return false;
-      return true;
-
-    }
-
-// // slider call
-
-$('#exposure_slider').slider({
-	range: true,
-	min: 5,
-	max: 1000,
-	values: [ 75, 300 ],
-	slide: function(event, ui) {
-
-		$('.ui-slider-handle:eq(0) .exp-range-min').html('$' + ui.values[ 0 ]);
-		$('.ui-slider-handle:eq(1) .exp-range-max').html('$' + ui.values[ 1 ]);
-		$('.exp-range-both').html('<i>$' + ui.values[ 0 ] + ' - </i>$' + ui.values[ 1 ] );
-
-		//
-
-    if ( ui.values[0] == ui.values[1] ) {
-      $('.exp-range-both i').css('display', 'none');
-    } else {
-      $('.exp-range-both i').css('display', 'inline');
-    }
-
-        //
-
-		if (collision($('.exp-range-min'), $('.exp-range-max')) == true) {
-			$('.exp-range-min, .exp-range-max').css('opacity', '0');
-			$('.exp-range-both').css('display', 'block');
-		} else {
-			$('.exp-range-min, .exp-range-max').css('opacity', '1');
-			$('.exp-range-both').css('display', 'none');
-		}
-
-	}
-});
-
-$('.ui-slider-range').append('<span class="exp-range-both exp_value"><i>$' + $('#exposure_slider').slider('values', 0 ) + ' - </i>' + $('#exposure_slider').slider('values', 1 ) + '</span>');
-
-$('.ui-slider-handle:eq(0)').append('<span class="exp-range-min exp_value">$' + $('#exposure_slider').slider('values', 0 ) + '</span>');
-
-$('.ui-slider-handle:eq(1)').append('<span class="exp-range-max exp_value">$' + $('#exposure_slider').slider('values', 1 ) + '</span>');
-
-
-
-
-// PRICE SLIDER
-
-$('#price_slider').slider({
-	range: true,
-	min: 5,
-	max: 1000,
-	values: [ 75, 300 ],
-	slide: function(event, ui) {
-
-		$('.ui-slider-handle:eq(0) .price-range-min').html('$' + ui.values[ 0 ]);
-		$('.ui-slider-handle:eq(1) .price-range-max').html('$' + ui.values[ 1 ]);
-		$('.price-range-both').html('<i>$' + ui.values[ 0 ] + ' - </i>$' + ui.values[ 1 ] );
-
-		//
-
-    if ( ui.values[0] == ui.values[1] ) {
-      $('.price-range-both i').css('display', 'none');
-    } else {
-      $('.price-range-both i').css('display', 'inline');
-    }
-
-        //
-
-		if (collision($('.price-range-min'), $('.price-range-max')) == true) {
-			$('.price-range-min, .price-range-max').css('opacity', '0');
-			$('.price-range-both').css('display', 'block');
-		} else {
-			$('.price-range-min, .price-range-max').css('opacity', '1');
-			$('.price-range-both').css('display', 'none');
-		}
-
-	}
-});
-
-$('.ui-slider-range').append('<span class="price-range-both value"><i>$' + $('#price_slider').slider('values', 0 ) + ' - </i>' + $('#price_slider').slider('values', 1 ) + '</span>');
-
-$('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">$' + $('#price_slider').slider('values', 0 ) + '</span>');
-
-$('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">$' + $('#price_slider').slider('values', 1 ) + '</span>');
 </script>
