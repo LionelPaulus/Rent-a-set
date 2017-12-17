@@ -1,22 +1,24 @@
 <header class="masthead text-center text-white d-flex">
   <div class="layer"></div>
   <% if current_user %>
-  <div class="container my-auto">
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <h1 class="text-uppercase">
-          <strong>Hello <%= current_user.first_name %> !</strong>
-        </h1>
-        <hr>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <p class="text-faded mb-5">Start looking threw our fabulous selection of beautiful and unique places all around the world. You can even put up your own special place for rent by creating a set.</p>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">Discover</a>
-        <%= link_to 'Create a set', new_place_path, class:"btn btn-primary btn-xl js-scroll-trigger" %>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h1 class="text-uppercase">
+            <strong>Hello
+              <%= current_user.first_name %>
+              !</strong>
+          </h1>
+          <hr>
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <p class="text-faded mb-5">Start looking threw our fabulous selection of beautiful and unique places all around the world. You can even put up your own special place for rent by creating a set.</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="/places">Discover</a>
+          <%= link_to 'Create a set', new_place_path, class:"btn btn-primary btn-xl js-scroll-trigger" %>
 
+        </div>
       </div>
     </div>
-  </div>
   <% else %>
 
     <div class="container my-auto">
@@ -37,200 +39,178 @@
   <% end %>
 </header>
 
-<section id="searchbox" class="search_container">
-  <div class="centered_search_container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="input-group" id="adv-search">
-            <input type="text" class="form-control" placeholder="What are you looking for?" />
+<div id="searchbox" class="container search_container">
+    <form class="form-horizontal" role="form" method="get">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group" id="">
+            <input type="text" class="form-control" placeholder="Where ?"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <select class="form-control" id="interet">
+            <option disabled selected="selected">Category</option>
+            <option value="musique">Apartments</option>
+            <option value="cinema">Houses</option>
+            <option value="sport">Villas</option>
+            <option value="jeuvideo">Manors</option>
+            <option value="lecture">Castles</option>
+            <option value="lecture">Cottages</option>
+          </select>
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="input-group" id="adv-search1">
-          <input type="text" class="form-control" placeholder="Category"/>
-          <div class="input-group-btn">
-                    <div class="btn-group" role="group">
-                        <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <form class="form-horizontal" role="form">
-                                  <div class="checkbox">
-                                    <label><input type="checkbox" value="">Apartments</label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label><input type="checkbox" value="">Houses</label>
-                                  </div>
-                                  <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Villas</label>
-                                  </div>
-                                  <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Manors</label>
-                                  </div>
-                                  <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Castles</label>
-                                  </div>
-                                  <div class="checkbox disabled">
-                                    <label><input type="checkbox" value="" disabled>Cottages</label>
-                                  </div>
-                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button> -->
-                    </div>
-                </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-        <div class='col-sm-3'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+      <div class="row">
+        <div class='col-md-6'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <label class="start_date">From</label>
+              <input type='datetime-local' class="form-control"/>
             </div>
+          </div>
         </div>
-    </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <label class="end_date">To</label>
+              <input type='datetime-local' class="form-control"/>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="row">
+        <div class='col-6'>
+          <span>Exposure</span>
+          <label class="start_date">from:</label>
+          <select class="selectpicker" id="interet">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label class="start_date">to:</label>
+          <select class="selectpicker" id="interet">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <span>Price ($/d)</span>
+          <label class="start_date">from:</label>
+          <input type="number" name="price_min" min="1" max="9999">
+          <label class="start_date">to:</label>
+          <input type="number" name="price_max" min="1" max="9999">
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px; margin-bottom: 30px;">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">
+            Search
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-</section>
+</div>
 
-
+<hr>
 
 <div class="space_container">
   <h4 class="category_title">Families of sets</h4>
 </div>
 
 <main role="main">
-    <section class="p-0" id="portfolio">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="">
-              <%=image_tag("house0.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Houses
-                  </div>
+  <section class="p-0" id="portfolio">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters popup-gallery">
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="">
+            <%=image_tag("house0.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Houses
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="">
-              <%=image_tag("app1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Apartments
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="">
+            <%=image_tag("app1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Apartments
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-                 <%=image_tag("vila1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Villas
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("vila1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Villas
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-              <%=image_tag("manor1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Mansions
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("manor1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Mansions
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-              <%=image_tag("castle1.jpg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Castles
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("castle1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Castles
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="category-box" href="#">
-              <%=image_tag("house4.jpeg", class: "img_preview") %>
-              <div class="category-box-caption">
-                <div class="category-box-caption-content">
-                  <div class="project-category text-faded">
-                    Cottages
-                  </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("house4.jpeg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Cottages
                 </div>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-
- </main>
-
- <script type="text/javascript">
-
-     $(function () {
-    var bindDatePicker = function() {
-    $(".date").datetimepicker({
-        format:'YYYY-MM-DD',
-        icons: {
-          time: "fa fa-clock-o",
-          date: "fa fa-calendar",
-          up: "fa fa-arrow-up",
-          down: "fa fa-arrow-down"
-        }
-    }).find('input:first').on("blur",function () {
-      var date = parseDate($(this).val());
-
-      if (! isValidDate(date)) {
-        date = moment().format('YYYY-MM-DD');
+<script type="text/javascript">
+function updateTextInput(val) {
+        document.getElementById('textInput').value=val;
+      }
+function updatePriceInput(val) {
+      document.getElementById('priceInput').value=val;
       }
 
-      $(this).val(date);
-    });
-    }
-
-    var isValidDate = function(value, format) {
-    format = format || false;
-    if (format) {
-      value = parseDate(value);
-    }
-
-    var timestamp = Date.parse(value);
-
-    return isNaN(timestamp) == false;
-    }
-
-    var parseDate = function(value) {
-    var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-    if (m)
-      value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
-
-    return value;
-    }
-
-    bindDatePicker();
-    });
-
-
- </script>
+</script>

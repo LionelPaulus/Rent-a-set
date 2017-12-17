@@ -16,7 +16,7 @@
  */
 
 body {
-  background-color: #F1F1F1;
+  /*background-color: #F1F1F1;*/
   width: 100%;
   margin: 0;
 }
@@ -96,9 +96,9 @@ body {
 ** SIGNUP FORM :
 */
 
-form {
+/* form {
   width: 70%;
-}
+} */
 
 .signup_title {
   font-size: 20px;
@@ -166,7 +166,7 @@ input#user_password.form-control {
 
 @media (min-width: 992px) {
   header.masthead {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 70px);
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
@@ -268,74 +268,51 @@ input#user_password.form-control {
   }
 }
 
-.Header {
-  margin-bottom: 60px;
-}
+.category-box .category-box-caption .category-box-caption-content .project-category,
+     .category-box .category-box-caption .category-box-caption-content .project-name {
+       padding: 0 15px;
+       font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
+     .category-box .category-box-caption .category-box-caption-content
+     .category-box .category-box-caption .category-box-caption-content .project-name {
+       font-size: 18px; }
+ .category-box:hover .category-box-caption {
+   opacity: 1; }
+ .category-box:focus {
+   outline: none; }
+ @media (min-width: 768px) {
+   .category-box .category-box-caption .category-box-caption-content .project-category {
+     font-size: 16px; }
+   .category-box .category-box-caption .category-box-caption-content .project-name {
+     font-size: 22px; } }
 
-.Nav {
-  min-height: 60px;
-}
 
-.Place {
-  padding-top: 20px;
-}
+/*
 
-.Place-form {
-  width: auto;
-}
-
-.Place-row {
-  justify-content: center;
-}
-
-.center-align {
-  justify-content: center;
-  .category-box .category-box-caption .category-box-caption-content .project-category, .category-box .category-box-caption .category-box-caption-content .project-name {
-    padding: 0 15px;
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  }
-  .category-box .category-box-caption .category-box-caption-content .category-box .category-box-caption .category-box-caption-content .project-name {
-    font-size: 18px;
-  }
-  .category-box:hover .category-box-caption {
-    opacity: 1;
-  }
-  .category-box:focus {
-    outline: none;
-  }
-  @media (min-width: 768px) {
-    .category-box .category-box-caption .category-box-caption-content .project-category {
-      font-size: 16px;
-    }
-    .category-box .category-box-caption .category-box-caption-content .project-name {
-      font-size: 22px;
-    }
-  }
-  /*
 ** ADVANCED SEARCH FORM
 */
   .search_container {
     background-color: #fff;
-    padding-top: 50px;
-  }
-  .centered_search_container {
+    margin-top: 50px;
+}
+.centered_search_container {
     margin: 0 auto;
     text-align: center;
-    width: 70%;
-  }
-  .input-group {
-    margin-bottom: 20px;
-  }
-  .dropdown.dropdown-lg .dropdown-menu {
+    width: 80%;
+}
+
+.input-group{
+  margin-bottom: 20px;
+}
+.dropdown.dropdown-lg .dropdown-menu {
     margin-top: -1px;
     padding: 6px 20px;
   }
   .input-group-btn .btn-group {
     display: flex !important;
-  }
-  .btn-group .btn {
-    border-radius: 0;
-    border: solid 1px #CED4DA;
+}
+.btn-group .btn {
+    border-radius: 5px;
+    border: solid 2px #0c546012;
     margin-left: -1px;
   }
   .btn-group .btn:last-child {
@@ -365,15 +342,53 @@ input#user_password.form-control {
     .dropdown.dropdown-lg .dropdown-menu {
       min-width: 290px;
     }
-  }
-  .categories_list {}
-  .hidden {
-    opacity: 0;
-  }
-  .show {
-    opacity: 1;
-  }
-  .checkbox input {
-    margin-right: 10px;
-  }
+}
+.form-control{
+  border: solid 2px #0c546012;
+  border-radius: 5px;
+  z-index: -50;
+}
+
+.categories_list {
+
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
+.checkbox input {
+  margin-right: 10px;
+}
+.start_date {
+  padding-top: 8px;
+  padding-right: 10px;
+  color: #868E95;
+}
+.end_date {
+  padding-top: 8px;
+  padding-right: 10px;
+  color: #868E95;
+}
+input[type="range"] {
+    position: relative;
+    margin-left: 1em;
+}
+input[type="range"]:after,
+input[type="range"]:before {
+    position: absolute;
+    top: 1em;
+    color: #aaa;
+}
+input[type="range"]:before {
+    left:0em;
+    content: attr(min);
+}
+input[type="range"]:after {
+    right: 0em;
+    content: attr(max);
 }
