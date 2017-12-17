@@ -40,175 +40,177 @@
 </header>
 
 <div id="searchbox" class="container search_container">
-  <form class="form-horizontal" role="form" method="get">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="input-group" id="">
-          <input type="text" class="form-control" placeholder="Where ?"/>
+    <form class="form-horizontal" role="form" method="get">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group" id="">
+            <input type="text" class="form-control" placeholder="Where ?"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <select class="form-control" id="interet">
+            <option disabled selected="selected">Category</option>
+            <option value="musique">Apartments</option>
+            <option value="cinema">Houses</option>
+            <option value="sport">Villas</option>
+            <option value="jeuvideo">Manors</option>
+            <option value="lecture">Castles</option>
+            <option value="lecture">Cottages</option>
+          </select>
         </div>
       </div>
-      <div class="col-md-6">
-        <select class="form-control" id="interet">
-          <option disabled="disabled" selected="selected">Category</option>
-          <option value="musique">Apartments</option>
-          <option value="cinema">Houses</option>
-          <option value="sport">Villas</option>
-          <option value="jeuvideo">Manors</option>
-          <option value="lecture">Castles</option>
-          <option value="lecture">Cottages</option>
-        </select>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class='col-md-6'>
-        <div class="form-group">
-          <div class='input-group date' id='datetimepicker1'>
-            <label class="start_date">From</label>
-            <input type='datetime-local' class="form-control"/>
+      <div class="row">
+        <div class='col-md-6'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <label class="start_date">From</label>
+              <input type='datetime-local' class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <label class="end_date">To</label>
+              <input type='datetime-local' class="form-control"/>
+            </div>
           </div>
         </div>
       </div>
-      <div class='col-md-6'>
-        <div class="form-group">
-          <div class='input-group date' id='datetimepicker1'>
-            <label class="end_date">To</label>
-            <input type='datetime-local' class="form-control"/>
-          </div>
+
+      <div class="row">
+        <div class='col-6'>
+          <span>Exposure</span>
+          <label class="start_date">from:</label>
+          <select class="selectpicker" id="interet">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label class="start_date">to:</label>
+          <select class="selectpicker" id="interet">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <span>Price ($/d)</span>
+          <label class="start_date">from:</label>
+          <input type="number" name="price_min" min="1" max="9999">
+          <label class="start_date">to:</label>
+          <input type="number" name="price_max" min="1" max="9999">
         </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class='col-6'>
-        <span>Exposure</span>
-        <label class="start_date">from:</label>
-        <select class="selectpicker" id="interet">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <label class="start_date">to:</label>
-        <select class="selectpicker" id="interet">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+      <div class="row" style="margin-top: 20px; margin-bottom: 30px;">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary cursor">
+            Search
+          </button>
+        </div>
       </div>
-      <div class="col-6">
-        <span>Price ($/d)</span>
-        <label class="start_date">from:</label>
-        <input type="number" name="price_min" min="1" max="9999">
-        <label class="start_date">to:</label>
-        <input type="number" name="price_max" min="1" max="9999">
-      </div>
-    </div>
-    <div class="row" style="margin-top: 20px; margin-bottom: 30px;">
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">
-          Search
-        </button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 <hr>
 
 <div class="space_container">
-<h4 class="category_title">Families of sets</h4>
+  <h4 class="category_title">Families of sets</h4>
 </div>
 
 <main role="main">
-<section class="p-0" id="portfolio">
-  <div class="container-fluid p-0">
-    <div class="row no-gutters popup-gallery">
-      <div class="col-lg-4 col-sm-6">
-        <a class="category-box" href="">
-          <%=image_tag("house0.jpg", class: "img_preview") %>
-          <div class="category-box-caption">
-            <div class="category-box-caption-content">
-              <div class="project-category text-faded">
-                Houses
+  <section class="p-0" id="portfolio">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters popup-gallery">
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="">
+            <%=image_tag("house0.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Houses
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a class="category-box" href="">
-          <%=image_tag("app1.jpg", class: "img_preview") %>
-          <div class="category-box-caption">
-            <div class="category-box-caption-content">
-              <div class="project-category text-faded">
-                Apartments
+          </a>
+        </div>  
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="">
+            <%=image_tag("app1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Apartments
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a class="category-box" href="#">
-          <%=image_tag("vila1.jpg", class: "img_preview") %>
-          <div class="category-box-caption">
-            <div class="category-box-caption-content">
-              <div class="project-category text-faded">
-                Villas
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("vila1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Villas
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a class="category-box" href="#">
-          <%=image_tag("manor1.jpg", class: "img_preview") %>
-          <div class="category-box-caption">
-            <div class="category-box-caption-content">
-              <div class="project-category text-faded">
-                Mansions
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("manor1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Mansions
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a class="category-box" href="#">
-          <%=image_tag("castle1.jpg", class: "img_preview") %>
-          <div class="category-box-caption">
-            <div class="category-box-caption-content">
-              <div class="project-category text-faded">
-                Castles
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("castle1.jpg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Castles
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <a class="category-box" href="#">
-          <%=image_tag("house4.jpeg", class: "img_preview") %>
-          <div class="category-box-caption">
-            <div class="category-box-caption-content">
-              <div class="project-category text-faded">
-                Cottages
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="category-box" href="#">
+            <%=image_tag("house4.jpeg", class: "img_preview") %>
+            <div class="category-box-caption">
+              <div class="category-box-caption-content">
+                <div class="project-category text-faded">
+                  Cottages
+                </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <script type="text/javascript">
 function updateTextInput(val) {
-  document.getElementById('textInput').value = val;
-}
+        document.getElementById('textInput').value=val;
+      }
 function updatePriceInput(val) {
-  document.getElementById('priceInput').value = val;
-}
+      document.getElementById('priceInput').value=val;
+      }
+
 </script>
