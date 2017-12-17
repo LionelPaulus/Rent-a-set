@@ -1,12 +1,20 @@
 <div class="container">
 
   <div class="row">
-    <div class="col">
-      <h1>Places</h1>
+    <% if @places.length == 0 %>
+    <div class="col-12">
+      <h1 class="text-uppercase"> Uh oh !</h1>
+      <div>
+        <p class="text-faded mb-5"> It seems like there's no set here.</p>
+      </div>
     </div>
-  </div>
-
-  <div class="row">
+      <%else%>
+      <div class="row">
+        <div class="col">
+          <h2>Places<span> - <%= @places.length %> found</span></h2>
+        </div>
+      </div>
+    <% end %>
     <div class="card-deck">
       <% @places.each_with_index do |place, index| %>
         <div class="col-4">

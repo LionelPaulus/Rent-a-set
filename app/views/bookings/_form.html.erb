@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  Price: <div id="place-price" style="display:inline;">0</div>€
+  <span style="display:inline; font-weight:bolder; font-size:22px">  $ </span><div id="place-price" style="display:inline; font-weight:bolder; font-size:22px">0</div><span style="display:inline; font-weight:light;">   in total</span><br>
 
   <%= form.hidden_field :place_id, id: :booking_place_id, :value => @place.id %>
 
@@ -21,7 +21,7 @@
   <%= form.label :end_time %>
   <%= form.datetime_local_field :end_time %>
 
-  <div class="actions">
+  <div class="actions btn">
     <%= form.submit %>
   </div>
 <% end %>
