@@ -9,78 +9,79 @@
   <div class="row">
     <div class="card-deck">
       <% @places.each_with_index do |place, index| %>
-      <div class="col-4">
-        <div class="card">
-          <div id="carousel<%= index %>" class="carousel slide" data-ride="carousel">
+        <div class="col-4">
+          <div class="card">
+            <div id="carousel<%= index %>" class="Carousel-small carousel slide" data-ride="carousel">
 
-            <ol class="carousel-indicators">
-              <% place.photos.each_with_index do |t, i| %>
-              <% if i == 0 %>
-              <li data-target="#carousel<%= index %>" data-slide-to="<%= i %>" class="active"></li>
-              <% else %>
-              <li data-target="#carousel<%= index %>" data-slide-to="<%= i %>"></li>
-              <% end %>
-              <% end %>
-            </ol>
+              <ol class="carousel-indicators">
+                <% place.photos.each_with_index do |t, i| %>
+                  <% if i == 0 %>
+                    <li data-target="#carousel<%= index %>" data-slide-to="<%= i %>" class="active"></li>
+                  <% else %>
+                    <li data-target="#carousel<%= index %>" data-slide-to="<%= i %>"></li>
+                  <% end %>
+                <% end %>
+              </ol>
 
-            <div class="carousel-inner">
-              <% place.photos.each_with_index do |pic, i| %>
-              <% if i == 0 %>
-              <div class="carousel-item active">
-                <%= image_tag pic.image.url(:high), class: 'w-100' %>
+              <div class="carousel-inner">
+                <% place.photos.each_with_index do |pic, i| %>
+                  <% if i == 0 %>
+                    <div class="carousel-item active">
+                      <%= image_tag pic.image.url(:high), class: 'w-100' %>
+                    </div>
+                  <% else %>
+                    <div class="carousel-item">
+                      <%= image_tag pic.image.url(:high), class: 'w-100' %>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
-              <% else %>
-              <div class="carousel-item">
-                <%= image_tag pic.image.url(:high), class: 'w-100' %>
-              </div>
-              <% end %>
-              <% end %>
+
+              <a class="carousel-control-prev" href="#carousel<%= index %>" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel<%= index %>" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-
-            <a class="carousel-control-prev" href="#carousel<%= index %>" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel<%= index %>" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">
-              <%= place.name %>
-            </h4>
-            <p class="card-text">
-              <%= place.description %>
-            </p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              Category: <%= place.category %>
-            </li>
-            <li class="list-group-item">
-              Address: <%= place.address %>
-            </li>
-            <li class="list-group-item">
-              Area: <%= place.area %>m²
-            </li>
-            <li class="list-group-item">
-              Exposure: <%= place.exposure %>/5
-            </li>
-            <li class="list-group-item">
-              Price: $<%= place.price %> per day
-            </li>
-          </ul>
-          <div class="card-body">
-            <%= link_to 'Edit', edit_place_path(place), class: 'card-link' %>
-            <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-link' %>
-            <%= link_to 'More', place, class: 'btn btn-primary' %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= place.name %>
+              </h4>
+              <p class="card-text">
+                <%= place.description %>
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Category: <%= place.category %>
+              </li>
+              <li class="list-group-item">
+                Address: <%= place.address %>
+              </li>
+              <li class="list-group-item">
+                Area: <%= place.area %>m²
+              </li>
+              <li class="list-group-item">
+                Exposure: <%= place.exposure %>/5
+              </li>
+              <li class="list-group-item">
+                Price: $<%= place.price %> per day
+              </li>
+            </ul>
+            <div class="card-body">
+              <%= link_to 'Edit', edit_place_path(place), class: 'card-link' %>
+              <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-link' %>
+              <%= link_to 'More', place, class: 'btn btn-primary' %>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
+
 </div>
 
 <p id="notice"><%= notice %></p>
