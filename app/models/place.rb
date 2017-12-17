@@ -34,5 +34,11 @@ class Place < ApplicationRecord
   }
   scope :location, lambda { |location|
     near(location, 50, :units => :km, :order => 'distance')
+  scope :between, lambda { |params|
+    joins(:bookings)
+      .where(
+        '? BETWEEN bookings.start_time AND bookings.end_time OR ? BETWEEN bookings.start_time AND bookings.end_time',
+        params[:start_time], params[:end_time]
+      )
   }
 end

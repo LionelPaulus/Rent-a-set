@@ -1,4 +1,4 @@
-<%= form_for(@booking, url: {action: "create"}, local: true) do |form| %>
+<%= form_for([@place,@place.bookings.new]) do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -25,6 +25,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+
 <script type="text/javascript">
   var place_price = <%= @place.price %>;
   var inputs = document.querySelectorAll('input');

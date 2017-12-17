@@ -16,6 +16,7 @@
   # GET /places/1
   # GET /places/1.json
   def show
+    @booking = Booking.new
   end
 
   # GET /places/new
@@ -39,7 +40,7 @@
       end
     end
     if params['place']['tag']
-      tags = params['place']['tag']['name'].split(',')
+      tags = params['place']['tag']['name'].split(', ')
       tags.each do |tag|
         @place.tags.build(name: tag)
       end
