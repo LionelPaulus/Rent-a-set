@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
 
+  def my_bookings
+    @bookings = Booking.where(user_id: current_user.id)
+  end
+
   def index
     @bookings = Booking.where(place_id: params[:place_id])
   end
