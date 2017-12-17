@@ -1,3 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+</div>
+
 <% if flash[:notice] %>
   <div id="notice"><%= flash[:notice] %></div>
 <% end %>
@@ -13,7 +21,7 @@
 <p>
   <strong>Photo:</strong>
   <% @place.photos.each do |pic| %>
-    <%= image_tag pic.image.url %>
+    <%= image_tag pic.image.url(:high) %>
   <% end %>
 </p>
 
@@ -52,7 +60,7 @@
   <%= @place.area %>
 </p>
 
-<p>  
+<p>
   <strong>Latitude:</strong>
   <%= @place.latitude %>
 </p>
