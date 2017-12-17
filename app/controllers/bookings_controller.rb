@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
 
             flash[:notice] = "Your booking is confirmed! 👍"
           else
-            puts "Sorry, this slot is already booked 🙁"
+            flash[:alert] = "Sorry, this slot is already booked 🙁"
           end
         end
       end
