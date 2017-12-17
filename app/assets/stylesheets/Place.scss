@@ -1,9 +1,8 @@
 .Place {
   padding-top: 20px;
-}
-
-.Place-form {
-  width: auto;
+  &-form {
+    width: auto;
+  }
 }
 
 .Place-row  {
