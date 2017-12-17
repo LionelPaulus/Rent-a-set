@@ -34,6 +34,7 @@ class Place < ApplicationRecord
   }
   scope :location, lambda { |location|
     near(location, 50, :units => :km, :order => 'distance')
+  }
   scope :between, lambda { |params|
     joins(:bookings)
       .where(
