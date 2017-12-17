@@ -13,31 +13,31 @@
 
   <div class="form-group">
     <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :place_name, max: 75, :class => 'form-control' %>
+      <%= form.label :'name' %>
+      <%= form.text_field :name, id: :place_name, max: 75, :class => 'form-control', :placeholder => 'Enter a public display name for your set' %>
     </div>
 
     <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description, id: :place_description, :class => 'form-control' %>
+      <%= form.label :'description' %>
+      <%= form.text_area :description, id: :place_description, :class => 'form-control', :placeholder => 'How would you best describe your set ?' %>
     </div>
 
     <div class="field">
-      <%= form.label :category %>
+      <%= form.label :'category' %>
       <%= form.select(:category, options_for_select(['House', 'Apartment', 'Villa', 'Mansion', 'Castle', 'Cottage' ]), {}, {:class => 'form-control'}) %>
     </div>
 
     <%= form.fields_for :photo do |p| %>
-    <div>
+    <div class="field">
       <%= p.label :image %>
       <%= p.file_field :image, :multiple => true, :class => 'form-control-file' %>
     </div>
     <% end %>
 
     <%= form.fields_for :tag do |t| %>
-    <div>
-      <%= form.label :tags %>
-      <%= t.text_field :name, :class => 'form-control awesomplete' %>
+    <div class="field">
+      <%= t.label :tags %>
+      <%= t.text_field :name, :class => 'form-control awesomplete', :placeholder => 'Seperate tags with comma' %>
     </div>
     <% end %>
 
@@ -47,22 +47,22 @@
 
     <div class="field">
       <%= form.label :address %>
-      <%= form.text_field :address, id: :place_address, :autocomplete => :off, :class => 'form-control' %>
+      <%= form.text_field :address, id: :place_address, :autocomplete => :off, :class => 'form-control', :placeholder => 'Enter an adress' %>
     </div>
 
     <div class="field">
       <%= form.label :area %>
-      <%= form.number_field :area, id: :place_area, min: 1, max: 999, :class => 'form-control' %>
+      <%= form.number_field :area, id: :place_area, min: 1, max: 999, :class => 'form-control', :placeholder => 'Enter the surface of your set (m²)' %>
     </div>
 
     <div class="field">
       <%= form.label :exposure %>
-      <%= form.number_field :exposure, id: :place_exposure, min: 0, max: 5, :class => 'form-control' %>
+      <%= form.number_field :exposure, id: :place_exposure, min: 0, max: 5, :class => 'form-control', :placeholder => 'Rate the exposure of your set /5' %>
     </div>
 
     <div class="field">
       <%= form.label :price %>
-      <%= form.number_field :price, id: :place_price, min: 1, max: 9999, :class => 'form-control' %>
+      <%= form.number_field :price, id: :place_price, min: 1, max: 9999, :class => 'form-control', :placeholder => 'Daily price of your set' %>
     </div>
 
     <div class="row">
