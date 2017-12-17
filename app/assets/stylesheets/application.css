@@ -314,8 +314,9 @@ input#user_password.form-control {
     border-radius: 5px;
     border: solid 2px #0c546012;
     margin-left: -1px;
-  }
-  .btn-group .btn:last-child {
+    cursor: pointer;
+}
+.btn-group .btn:last-child {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
   }
@@ -391,4 +392,30 @@ input[type="range"]:before {
 input[type="range"]:after {
     right: 0em;
     content: attr(max);
+}
+
+/*
+**PLACE SHOW
+*/
+
+.new_booking {
+  margin-top: 30px;
+}
+.new_booking .actions,label {
+  margin-top: 20px;
+}
+.actions.btn input {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: -11px;
+}
+
+.cursor {
+  cursor: pointer;
 }
