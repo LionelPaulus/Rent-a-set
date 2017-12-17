@@ -80,8 +80,10 @@
               </li>
             </ul>
             <div class="card-body">
-              <% if current_user.id == place.user_id %>
-                <%= link_to 'Edit', edit_place_path(place), class: 'card-link' %>
+              <% if current_user %>
+                <% if current_user.id == place.user_id %>
+                  <%= link_to 'Edit', edit_place_path(place), class: 'card-link' %>
+                <% end %>
               <% end %>
               <%= link_to 'More', place, class: 'btn btn-primary' %>
             </div>
