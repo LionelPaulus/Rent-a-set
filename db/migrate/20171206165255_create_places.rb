@@ -3,7 +3,6 @@ class CreatePlaces < ActiveRecord::Migration[5.1]
     create_table :places do |t|
       t.belongs_to :user, foreign_key: true
       t.references :photo, foreign_key: true
-      t.references :tag, foreign_key: true
       t.string :name
       t.text :description
       t.string :category
