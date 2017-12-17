@@ -1,11 +1,17 @@
  class PlacesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
-    @tags = Tag.all
+    @places = Place.where(nil) # creates an anonymous scope
+    @places = @places.location(params[:location]) if params[:location].present?
+    @places = @places.min_price(params[:min_price]) if params[:min_price].present?
+    @places = @places.max_price(params[:max_price]) if params[:max_price].present?
+    @places = @places.min_exposure(params[:min_exposure]) if params[:min_exposure].present?
+    @places = @places.max_exposure(params[:max_exposure]) if params[:max_exposure].present?
+    @places = @places.category(params[:category]) if params[:category].present?
   end
 
   # GET /places/1

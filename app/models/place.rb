@@ -17,6 +17,24 @@ class Place < ApplicationRecord
   validates :exposure, numericality: { only_integer:true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
   validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 10000 }
 
+  scope :min_exposure, lambda { |min|
+    where('exposure >= ?', min)
+  }
+  scope :max_exposure, lambda { |max|
+    where('exposure <= ?', max)
+  }
+  scope :min_price, lambda { |min|
+    where('price >= ?', min)
+  }
+  scope :max_price, lambda { |max|
+    where('price <= ?', max)
+  }
+  scope :category, lambda { |category|
+    where(category: category)
+  }
+  scope :location, lambda { |location|
+    near(location, 50, :units => :km, :order => 'distance')
+  }
   scope :between, lambda { |params|
     joins(:bookings)
       .where(

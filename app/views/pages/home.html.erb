@@ -40,22 +40,22 @@
 </header>
 
 <div id="searchbox" class="container search_container">
-    <form class="form-horizontal" role="form" method="get">
+    <form class="form-horizontal" role="form" method="get" action="/places/">
       <div class="row">
         <div class="col-md-6">
           <div class="input-group" id="">
-            <input type="text" class="form-control" placeholder="Where ?"/>
+            <input type="text" name="location" class="form-control" id="address" placeholder="In which city?"/>
           </div>
         </div>
         <div class="col-md-6">
-          <select class="form-control" id="interet">
+          <select class="form-control" name="category" id="interet">
             <option disabled selected="selected">Category</option>
-            <option value="musique">Apartments</option>
-            <option value="cinema">Houses</option>
-            <option value="sport">Villas</option>
-            <option value="jeuvideo">Manors</option>
-            <option value="lecture">Castles</option>
-            <option value="lecture">Cottages</option>
+            <option value="House">Houses</option>
+            <option value="Apartment">Apartments</option>
+            <option value="Villa">Villas</option>
+            <option value="Mansion">Mansions</option>
+            <option value="Castle">Castles</option>
+            <option value="Cottage">Cottages</option>
           </select>
         </div>
       </div>
@@ -65,7 +65,7 @@
           <div class="form-group">
             <div class='input-group date' id='datetimepicker1'>
               <label class="start_date">From</label>
-              <input type='datetime-local' class="form-control"/>
+              <input type='datetime-local' name='start_time' class="form-control"/>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@
           <div class="form-group">
             <div class='input-group date' id='datetimepicker1'>
               <label class="end_date">To</label>
-              <input type='datetime-local' class="form-control"/>
+              <input type='datetime-local' name='end_time' class="form-control"/>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@
         <div class='col-6'>
           <span>Exposure</span>
           <label class="start_date">from:</label>
-          <select class="selectpicker" id="interet">
+          <select class="selectpicker" name="min_exposure" id="interet">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -91,7 +91,7 @@
             <option value="5">5</option>
           </select>
           <label class="start_date">to:</label>
-          <select class="selectpicker" id="interet">
+          <select class="selectpicker" name="max_exposure" id="interet">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -102,9 +102,9 @@
         <div class="col-6">
           <span>Price ($/d)</span>
           <label class="start_date">from:</label>
-          <input type="number" name="price_min" min="1" max="9999">
+          <input type="number" name="min_price" min="1" max="9999">
           <label class="start_date">to:</label>
-          <input type="number" name="price_max" min="1" max="9999">
+          <input type="number" name="max_price" min="1" max="9999">
         </div>
       </div>
       <div class="row" style="margin-top: 20px; margin-bottom: 30px;">
@@ -129,7 +129,7 @@
     <div class="container-fluid p-0">
       <div class="row no-gutters popup-gallery">
         <div class="col-lg-4 col-sm-6">
-          <a class="category-box" href="">
+          <a class="category-box" href="/places/?category=House">
             <%=image_tag("house0.jpg", class: "img_preview") %>
             <div class="category-box-caption">
               <div class="category-box-caption-content">
@@ -141,7 +141,7 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a class="category-box" href="">
+          <a class="category-box" href="/places/?category=Apartment">
             <%=image_tag("app1.jpg", class: "img_preview") %>
             <div class="category-box-caption">
               <div class="category-box-caption-content">
@@ -153,7 +153,7 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a class="category-box" href="#">
+          <a class="category-box" href="/places/?category=Villa">
             <%=image_tag("vila1.jpg", class: "img_preview") %>
             <div class="category-box-caption">
               <div class="category-box-caption-content">
@@ -165,7 +165,7 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a class="category-box" href="#">
+          <a class="category-box" href="/places/?category=Mansion">
             <%=image_tag("manor1.jpg", class: "img_preview") %>
             <div class="category-box-caption">
               <div class="category-box-caption-content">
@@ -177,7 +177,7 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a class="category-box" href="#">
+          <a class="category-box" href="/places/?category=Castle">
             <%=image_tag("castle1.jpg", class: "img_preview") %>
             <div class="category-box-caption">
               <div class="category-box-caption-content">
@@ -189,7 +189,7 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a class="category-box" href="#">
+          <a class="category-box" href="/places/?category=Cottage">
             <%=image_tag("house4.jpeg", class: "img_preview") %>
             <div class="category-box-caption">
               <div class="category-box-caption-content">
@@ -204,13 +204,27 @@
     </div>
   </section>
 </main>
-
 <script type="text/javascript">
 function updateTextInput(val) {
-        document.getElementById('textInput').value=val;
-      }
+  document.getElementById('textInput').value=val;
+}
 function updatePriceInput(val) {
-      document.getElementById('priceInput').value=val;
-      }
+  document.getElementById('priceInput').value=val;
+}
+var element = document.getElementById('address');
+function initAutocomplete() {
+  google.maps.event.addDomListener(element, 'keydown', function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    }
+  });
 
+  var autocomplete = new google.maps.places.Autocomplete(element, { types: ['(cities)'] });
+  autocomplete.addListener('place_changed', onPlaceChanged);
+}
+function onPlaceChanged() {
+  var place = this.getPlace();
+  element.value = place.formatted_address;
+}
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwluyRb2sgG_bfxjbL9RB7dj9dSTf7zU4&libraries=places&callback=initAutocomplete" async defer></script>
