@@ -1,10 +1,15 @@
  class PlacesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.location('Vincennes, FR');
+
+    puts "=============="
+    puts @places
+    puts "=============="
     @tags = Tag.all
   end
 
