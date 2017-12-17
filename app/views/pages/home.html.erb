@@ -39,33 +39,29 @@
   <% end %>
 </header>
 
-<section id="searchbox" class="search_container">
-  <div class="centered_search_container">
+<div id="searchbox" class="container search_container">
     <form class="form-horizontal" role="form" method="get">
-
       <div class="row">
         <div class="col-md-6">
-          <div class="input-group" id="adv-search">
+          <div class="input-group" id="">
             <input type="text" class="form-control" placeholder="Where ?"/>
           </div>
         </div>
-        <div class="col-md-4">
-            <label>Category</label>
-            <select class="selectpicker" id="interet">
-              <option value="musique">Apartments</option>
-              <option value="cinema">Houses</option>
-              <option value="sport">Villas</option>
-              <option value="jeuvideo">Manors</option>
-              <option value="lecture">Castles</option>
-              <option value="lecture">Cottages</option>
-            </select>
+        <div class="col-md-6">
+          <select class="form-control" id="interet">
+            <option disabled selected="selected">Category</option>
+            <option value="musique">Apartments</option>
+            <option value="cinema">Houses</option>
+            <option value="sport">Villas</option>
+            <option value="jeuvideo">Manors</option>
+            <option value="lecture">Castles</option>
+            <option value="lecture">Cottages</option>
+          </select>
         </div>
       </div>
 
-      </div>
-
       <div class="row">
-        <div class='col-md-4'>
+        <div class='col-md-6'>
           <div class="form-group">
             <div class='input-group date' id='datetimepicker1'>
               <label class="start_date">From</label>
@@ -73,7 +69,7 @@
             </div>
           </div>
         </div>
-        <div class='col-md-4'>
+        <div class='col-md-6'>
           <div class="form-group">
             <div class='input-group date' id='datetimepicker1'>
               <label class="end_date">To</label>
@@ -84,23 +80,45 @@
       </div>
 
       <div class="row">
-        <div class='col-md-8 rangegroup'>
-            <label class="start_date">Exposure level</label>
-            <div id="exposure_slider"></div>
+        <div class='col-6'>
+          <span>Exposure</span>
+          <label class="start_date">from:</label>
+          <select class="selectpicker" id="interet">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label class="start_date">to:</label>
+          <select class="selectpicker" id="interet">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <span>Price ($/d)</span>
+          <label class="start_date">from:</label>
+          <input type="number" name="price_min" min="1" max="9999">
+          <label class="start_date">to:</label>
+          <input type="number" name="price_max" min="1" max="9999">
         </div>
       </div>
-      <div class="row">
-        <div class='col-md-8 rangegroup'>
-            <label class="start_date">Price range</label>
-            <div id="price_slider"></div>
+      <div class="row" style="margin-top: 20px; margin-bottom: 30px;">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">
+            Search
+          </button>
         </div>
       </div>
-
-      <button type="submit" class="btn btn-primary">
-        <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
     </form>
   </div>
-</section>
+</div>
+
+<hr>
 
 <div class="space_container">
   <h4 class="category_title">Families of sets</h4>
