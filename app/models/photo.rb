@@ -2,8 +2,8 @@ class Photo < ApplicationRecord
   belongs_to :place
 
   has_attached_file :image,
-    :path => ":rails_root/public/images/:id/:filename",
-    :url  => "/images/:id/:filename",
+    :storage => :cloudinary,
+    :path => ':id/:filename',
     styles: {
       :thumb => "100x100#",
       :medium => "300x300>",
